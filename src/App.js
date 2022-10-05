@@ -9,14 +9,11 @@ export const App = () => {
     const [clicked, setClicked] = useState(false);
     const [destination, setDestination] = useState('');
 
-    const variants = {
-        move: {x: destination.x, y: destination.y},
-        still: '',
+    // const variants = {
+    //     move: {x: destination.x, y: destination.y},
+    //     still: '',
     }
-    const handleCharMove = async (y, x) => {
-        setDestination({x, y})
-        setClicked(true);
-    }
+   
     function useKeyPress(targetKey) {
       const [keyPressed, setKeyPressed] = useState<boolean>(false);
       //if pressed key is target set true
@@ -49,6 +46,11 @@ export const App = () => {
     }, []); //empty array ensures that effect is only run on mount and unmount
     return keyPressed;
   }
+
+   const handleCharMove = async (x) => {
+        setDestination({x})
+        useKeyPress(true);
+    }
 
   const Character = ({ location }) => {
     const [x, setX] = useState(0);
@@ -91,7 +93,7 @@ const InteractObject = ({ image, glowyImage, location }) => {
     )
 }
 
+useKeyPress();
 
 
-}
 export default App;
