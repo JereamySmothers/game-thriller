@@ -1,128 +1,46 @@
-// import logo from './logo.svg';
-import { createTSUnionType } from '@babel/types';
-import React, { useRef, useState, useEffect } from 'react';
-import useCanvas from './useCanvas'
+import { useEffect, useRef, useState } from "react";
+import char from './';
 
-const Canvas = props => { 
-  
-  const canvasRef = useRef(null)
-  const draw = ctx => {
-    ctx.clearReact(canvas.width, ctx.canvas.height)
-    ctx.fillStyle = "#FFD580"
-    ctx.beginPath()
-    ctx.rect(testSquare.x, testSquare.y, testSquare.width, testSquare.height);
-    ctx.lineWidth = 5;
-    ctx.lineTo
-    ctx.fillRect(3, 3, 100, 100)
-    ctx.lineTo(330, 170);
-    ctx.stroke();
-    ctx.strokeStyle = 'pink';
-  }
-  useEffect(() => {
-    const canvas = canvasRef.current
-    const context = canvas.getContext('2d')
-    const canvasRef = useCanvas(draw)
-    const render = () => {
-      draw(context)
+export const App = () => {
+    const controlsRef = useRef();
+
+    useEffect(() => {
+        controlsRef.current.focus();
+        console.log(controlsRef.current);
+    }, []);
+
+    const initialCharState = {
+        image: char,
+        x: 500,
+        y: 300
     }
-    render()
-     
-    
-    //Our first draw
-    context.fillStyle = '#000000'
-    context.fillRect(0, 0, context.canvas.width, context.canvas.height)
-    draw(context)
-  }, [draw])
+    const [character, updateCharacter] = useState(initialCharState);
+    const [keysPressed, setKeysPressed] = useState({});
 
-  return <Canvas draw={draw} />
-}
+    const controls = (e) => {
 
-// import { playerControls } from './hooks';
-import './App.css';
- 
-const App = () => {
-  var context, controller, rectangle, loop;
-context = document.querySelector("canvas").getContext("2d");
+        setKeysPressed({...keysPressed, [e.key] : true});
 
-context.canvas.height = 190;
-context.canvas.width = 330;
-
-testSquare = {
-  height: 35,
-  width: 35,
-  x: 160, 
-  x-velocity: 0,
-  y: 0,
-  y_velocity: 0
-
-};
-
-controls = {
-  right:false,
-  up:false,
-  left:false,
-  keyListener:function(event) {
-    var key_position = (event.type === "keydown")?true:false;
-    switch(event.keyCode) {
-      case 65: //a key
-      controls.left = key_position;
-      break;
-      case 68: //d key
-      controls.right = key_position;
-      break;
-      case 32: //space key
-      controls.up = key_position;
-      break;
-      default: ;
+        if(keysPressed['d']) {
+            updateCharacter({...character, x: character.x + 4})
+        }
+        if(keysPressed['a']) {
+            updateCharacter({...character, x: character.x - 4})
+        }
+        if(keysPressed['j'] && keysPressed['d']) {
+            updateCharacter({...character, x: character.x + 4});
+            updateCharacter({...character, x: character.x + 4, y: character.y - 10});
+            
+        }
     }
-  }
-};
-controlLoop() {
-  if(controller.left) {
-    testSquare.y_velocity -= 1;
-    testSquare.jumping = true;
-  }
-  if(controller.right && testSquare.jumping === false) {
-    testSquare.y_velocity += 1;
-    testSquare.jumping = true;
-  }
-  if(controller.up && testSquare.jumping === false) {
-    testSquare.y_velocity -= 30;
-    testSquare.jumping = true;
-  }
-  testSquare.y_velocity += 1.3; //gravity control
-  testSquare.x += testSquare.x_velocity;
-  testSquare.y_velocity *= 0.8; //friction
-  testSquare.x_velocity *= 0.8; //friction
+
+    return (
+        <div tabIndex={0} onKeyUp={(e) => setKeysPressed({...keysPressed, [e.key] : false})} onKeyDown={controls} ref={controlsRef} style={{width: '1000px', height: '1000px'}}  >
+            <div  style={{ position: "absolute", top: `${character.y}px`, left: `${character.x}px` }}>
+                <img alt="character" src={character.image} />
+            </div>
+        </div>
+    )
 }
 
-  return (
- 
-   <div></div>
-      
-   
-  )
-}
-
-export default App;
-
-  // const ImportPlayerControls = () => {
-  //   const { data } = playerControls();
-  //   return <p>{data && data.text}</p>
-  // }
-//   <div className="App">
-//   <header className="App-header">
-//     <img src={logo} className="App-logo" alt="logo" />
-//     <p>
-//       Edit <code>src/App.js</code> and save to reload.
-//     </p>
-//     <a
-//       className="App-link"
-//       href="https://reactjs.org"
-//       target="_blank"
-//       rel="noopener noreferrer"
-//     >
-//       Learn React
-//     </a>
-//   </header>
-// </div>
+export default App
