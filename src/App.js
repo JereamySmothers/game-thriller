@@ -1,12 +1,42 @@
 // import logo from './logo.svg';
+import { createTSUnionType } from '@babel/types';
 import React, { useRef, useState, useEffect } from 'react';
+import useCanvas from './useCanvas'
 
 const Canvas = props => { 
-const canvasRef = canvasRef.current
-const context = canvas.getContext('2d')
-return <canvas ref={canvasRef} {...props} />
+  
+  const canvasRef = useRef(null)
+  const draw = ctx => {
+    ctx.clearReact(canvas.width, ctx.canvas.height)
+    ctx.fillStyle = "#FFD580"
+    ctx.beginPath()
+    ctx.rect(testSquare.x, testSquare.y, testSquare.width, testSquare.height);
+    ctx.lineWidth = 5;
+    ctx.lineTo
+    ctx.fillRect(3, 3, 100, 100)
+    ctx.lineTo(330, 170);
+    ctx.stroke();
+    ctx.strokeStyle = 'pink';
+  }
+  useEffect(() => {
+    const canvas = canvasRef.current
+    const context = canvas.getContext('2d')
+    const canvasRef = useCanvas(draw)
+    const render = () => {
+      draw(context)
+    }
+    render()
+     
+    
+    //Our first draw
+    context.fillStyle = '#000000'
+    context.fillRect(0, 0, context.canvas.width, context.canvas.height)
+    draw(context)
+  }, [draw])
+
+  return <Canvas draw={draw} />
 }
-export Canvas
+
 // import { playerControls } from './hooks';
 import './App.css';
  
@@ -46,6 +76,24 @@ controls = {
       default: ;
     }
   }
+};
+controlLoop() {
+  if(controller.left) {
+    testSquare.y_velocity -= 1;
+    testSquare.jumping = true;
+  }
+  if(controller.right && testSquare.jumping === false) {
+    testSquare.y_velocity += 1;
+    testSquare.jumping = true;
+  }
+  if(controller.up && testSquare.jumping === false) {
+    testSquare.y_velocity -= 30;
+    testSquare.jumping = true;
+  }
+  testSquare.y_velocity += 1.3; //gravity control
+  testSquare.x += testSquare.x_velocity;
+  testSquare.y_velocity *= 0.8; //friction
+  testSquare.x_velocity *= 0.8; //friction
 }
 
   return (
