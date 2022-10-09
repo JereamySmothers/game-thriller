@@ -1,3 +1,0 @@
-// High score
-
-// Timer?
