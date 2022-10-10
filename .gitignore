@@ -1,3 +1,5 @@
 node_modules
-.ds_store
-assets
+.DS_Store
+package-lock.json
+.env
+
