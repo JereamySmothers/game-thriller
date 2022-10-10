@@ -12,6 +12,7 @@ const root = ReactDOM.createRoot(
   document.getElementById('root')
 );
 
+const Game = () => {
 // playerImg.src = '../img/Octocat.png'
 
 document.width = 1024;
@@ -307,54 +308,54 @@ image
 
     }
   }
-
-  export default Platforms
-
-  import styled from "styled-components";
-import { useState } from 'react'
-import ArrowKeysReact from 'arrow-keys-react';
-import React, { Component } from 'react';
-import Platforms from "../client/src/pages/Game";
-const CHAR_SIZE = 100;
-const GAME_WIDTH = 500;
-const GAME_HEIGHT = 500;
-
-const App = () => {
-    
-    const initialCharState = {
-        x: 50,
-        y: 30
-    }
-
-    const [charPosition, setCharPosition] = useState(initialCharState);
-
-
-    ArrowKeysReact.config({
-        left: () => {
-            setCharPosition({ ...charPosition, x: charPosition.x - 4 });
-        },
-        right: () => {
-            setCharPosition({ ...charPosition, x: charPosition.x + 4 })
-        },
-        up: () => {
-            setCharPosition({ ...charPosition, y: charPosition.y - 4 })
-        },
-        down: () => {
-            setCharPosition({ ...charPosition, y: charPosition.y + 4 });
-        }
-    });
-
-
-    return (
-        <div  {...ArrowKeysReact.events} tabIndex="1">
-            <GameScreen height={GAME_HEIGHT} width={GAME_WIDTH}>
-                <Char size={CHAR_SIZE} top={charPosition.y} left={charPosition.x} />
-            </GameScreen>
-        </div>
-    )
 }
 
-export default Game;
+  export default Game;
+
+
+//   import styled from "styled-components";
+// import { useState } from 'react'
+// import ArrowKeysReact from 'arrow-keys-react';
+// import React, { Component } from 'react';
+// import Platforms from "../client/src/pages/Game";
+// const CHAR_SIZE = 100;
+// const GAME_WIDTH = 500;
+// const GAME_HEIGHT = 500;
+
+//     const initialCharState = {
+//         x: 50,
+//         y: 30
+//     }
+
+//     const [charPosition, setCharPosition] = useState(initialCharState);
+
+
+//     ArrowKeysReact.config({
+//         left: () => {
+//             setCharPosition({ ...charPosition, x: charPosition.x - 4 });
+//         },
+//         right: () => {
+//             setCharPosition({ ...charPosition, x: charPosition.x + 4 })
+//         },
+//         up: () => {
+//             setCharPosition({ ...charPosition, y: charPosition.y - 4 })
+//         },
+//         down: () => {
+//             setCharPosition({ ...charPosition, y: charPosition.y + 4 });
+//         }
+//     });
+
+
+//     return (
+//         <div  {...ArrowKeysReact.events} tabIndex="1">
+//             <GameScreen height={GAME_HEIGHT} width={GAME_WIDTH}>
+//                 <Char size={CHAR_SIZE} top={charPosition.y} left={charPosition.x} />
+//             </GameScreen>
+//         </div>
+//     )
+// }
+
+
 
 // const Char = styled.div`
 //   position: center;
@@ -404,4 +405,4 @@ export default Game;
     // }),
     //  new Platform({ x: 500, y: 200 })
   // const image = new Image()
-  // img.src = '../img/grassHalf.png'
+  // img.src = '../img/grassHalf.png
