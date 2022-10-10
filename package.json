@@ -2,18 +2,22 @@
   "name": "thriller-game",
   "version": "1.0.0",
   "description": "",
-  "main": "webpack.config.js",
-  
   "scripts": {
-    "dev": "webpack --config webpack.config.js",
-    "start": "webpack --config webpack.config.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "live-server": "^1.2.2"
+    "babel": "^6.23.0",
+    "glob-parent": "^6.0.2",
+    "live-server": "^1.1.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "^5.0.1",
+    "web-vitals": "^3.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
@@ -21,10 +25,18 @@
     "babel-loader": "^8.1.0",
     "browser-sync": "^2.26.7",
     "browser-sync-webpack-plugin": "^2.2.2",
-    "file-loader": "^6.2.0",
-    "html-webpack-plugin": "^4.0.3",
-    "prettier": "^2.0.2",
-    "webpack": "^4.42.1",
-    "webpack-cli": "^3.3.11"
+    "prettier": "^2.0.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
