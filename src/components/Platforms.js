@@ -1,61 +1,58 @@
 import React, { components } from "react";
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import grassHalf from '../img/grassHalf.png'
+import platform from '../img/grassHalf.png'
+import background from '../img/layer-1.png'
 import stoneHalf from '../img/stoneHalf.png'
 import reportWebVitals from './reportWebVitals';
+console.log('platform')
+
 const root = ReactDOM.createRoot(
   document.getElementById('root')
 );
-const img = new Image()
 const playerImg = new Image()
 const grassHalf = new Image()
 const stoneHalf = new Image()
 
-playerImg.src = '../img/Octocat.png'
+// playerImg.src = '../img/Octocat.png'
 
-body.width = window.innerWidth;
-body.height = window.innerHeight;
-// const windowHeight = Dimensions.get('window').height
-// const windowWidth = Dimensions.get('window').width
+body.width = 1024;
+body.height = 576;
 
-// class Platforms extends components {
-//   render() {}
-//     constructor() {
-//       this.position = {
-//         x,
-//         y
-//       }
+const platformDisplay = () => (
+  (this.image, this.position.x, this.position.y)
+);
+ReactDOM.render(platformDisplay, document.getElementById('root'));
 
-//       this.width = 200
-//       this.height = 20
-//       root.render(element);
-//     }
-    
-    //render
-  //   draw() {
-  //     c.fillStyle = 'orange'
-  //     c.fillRect(this.position.x, this.position.y, this.width, this.height)
-  //     root.render(element);
-  //   }
-    
+function createScenery(imgSrc) {
+const image = new Image()
+image.src = platform
+return image
+}
 
-// new Platform({
-    //   x: 200,
-    //   y: 100,
-    //   img
-    // }),
-    //  new Platform({ x: 500, y: 200 })
-  // const image = new Image()
-  // img.src = '../img/grassHalf.png'
-  console.log('image')
+const platformImg = createScenery(platform) 
+const image = new Image()
+image.src = platform
+console.log(image)
+image
 
   const platforms = [
-    { platformPosition:{x: 200, y: 100}, img: img.grassHalf, attributes: {height: 20, width: 200}},
-    { platformPosition:{x: 500, y: 200}, img: img.src="../img/stoneHalf.png", attributes: {height: 20, width: 200}}
-    
-     
+    { platformPosition:{x: platformImg.width -3, y: 470, image: createScenery(platformImg)}, img: createScenery(platformImg), attributes: {height: 20, width: 200}},
+    { platformPosition:{x: 500, y: 200}, img: createScenery(platform), attributes: {height: 20, width: 200}
+    //render platform images
+    // ReactDOM.render(platforms, document.getElementById('root'));
+  }  
      ];
+     const scenery = [
+      { platformPosition:{x: 0, y: 0}, img: '', attributes: {height: 20, width: 200}},
+      { platformPosition:{x: 500, y: 200}, img: '', attributes: {height: 20, width: 200}
+      //render platform images
+      // ReactDOM.render(platforms, document.getElementById('root'));
+    }  
+       ];
+
+
+
 
      return (
       <div className="platformLayout">
@@ -76,12 +73,14 @@ body.height = window.innerHeight;
 
   function animation() {
     requestAnimationFrame(animation)
-    console.log('go')
-    player.update()
+    scenery.forEach(scenery => {
+      ReactDom.render(scenery, document.getElementById('root'));
+    })
     platforms.forEach(platform => {
       platform.draw()
     })
     platform.draw() 
+    player.update()
     //boundary
     if(keys.right.pressed && 
       player.position.x < 400) {
@@ -126,3 +125,36 @@ body.height = window.innerHeight;
     }
 
 export default Platforms
+
+// const windowHeight = Dimensions.get('window').height
+// const windowWidth = Dimensions.get('window').width
+
+// class Platforms extends components {
+//   render() {}
+//     constructor() {
+//       this.position = {
+//         x,
+//         y
+//       }
+
+//       this.width = 200
+//       this.height = 20
+//       root.render(element);
+//     }
+    
+    //render
+  //   draw() {
+  //     c.fillStyle = 'orange'
+  //     c.fillRect(this.position.x, this.position.y, this.width, this.height)
+  //     root.render(element);
+  //   }
+    
+
+// new Platform({
+    //   x: 200,
+    //   y: 100,
+    //   img
+    // }),
+    //  new Platform({ x: 500, y: 200 })
+  // const image = new Image()
+  // img.src = '../img/grassHalf.png'
