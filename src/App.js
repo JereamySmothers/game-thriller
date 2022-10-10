@@ -2,14 +2,13 @@ import styled from "styled-components";
 import { useState } from 'react'
 import ArrowKeysReact from 'arrow-keys-react';
 import React, { Component } from 'react';
-
+import Platforms from "./components/Platforms";
 const CHAR_SIZE = 100;
 const GAME_WIDTH = 500;
 const GAME_HEIGHT = 500;
 
 const App = () => {
     
-  // initializes character position
     const initialCharState = {
         x: 50,
         y: 30
@@ -17,7 +16,7 @@ const App = () => {
 
     const [charPosition, setCharPosition] = useState(initialCharState);
 
-// uses arrow keys to move character position 
+
     ArrowKeysReact.config({
         left: () => {
             setCharPosition({ ...charPosition, x: charPosition.x - 4 });
