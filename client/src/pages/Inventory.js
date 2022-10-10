@@ -1,9 +1,5 @@
 function Inventory() {
-    return (
-        <>
-        Inventory Modal
-        </>
-    )
+  return <>Inventory Modal</>;
 }
 
 export default Inventory;

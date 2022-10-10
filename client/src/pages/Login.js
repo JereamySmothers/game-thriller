@@ -1,9 +1,5 @@
 function Login() {
-    return (
-        <>
-        Login Modal
-        </>
-    )
+  return <>Login Modal</>;
 }
 
 export default Login;
