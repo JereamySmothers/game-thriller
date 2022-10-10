@@ -1,4 +1,4 @@
-import React from "react";
+import React, { components } from "react";
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -11,7 +11,8 @@ body.height = window.innerHeight;
 // const windowHeight = Dimensions.get('window').height
 // const windowWidth = Dimensions.get('window').width
 
-class Platform {
+class Platforms extends components {
+  render() {}
     constructor() {
       this.position = {
         x,
@@ -108,3 +109,4 @@ class Platform {
     }
     }
 
+export default Platforms
