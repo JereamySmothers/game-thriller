@@ -74,7 +74,7 @@ image
   function animation() {
     requestAnimationFrame(animation)
     scenery.forEach(scenery => {
-      ReactDom.render(scenery, document.getElementById('root'));
+      ReactDOM.render(scenery, document.getElementById('root'));
     })
     platforms.forEach(platform => {
       platform.draw()
@@ -122,9 +122,10 @@ image
     console.log("YOU WIIIINNNNN!!")
   }
     }
-    }
+  }
+  ReactDOM.render(animation, document.getElementById('root'));
 
-export default Platforms
+  export default Platforms
 
 // const windowHeight = Dimensions.get('window').height
 // const windowWidth = Dimensions.get('window').width
