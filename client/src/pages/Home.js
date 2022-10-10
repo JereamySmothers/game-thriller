@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState  } from "react";
+import char from '../assets/Octocat_small.png'
 
 function Home() {
     const controlsRef = useRef();
