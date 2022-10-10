@@ -9,10 +9,10 @@ import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "./components/Nav";
 import Home from "./pages/Home";
-import HighScores from "./pages/HighScores";
-import Inventory from "./pages/Inventory";
-import Login from "./pages/Login";
-import SignUp from "./pages/SignUp";
+// import HighScores from "./pages/HighScores";
+// import Inventory from "./pages/Inventory";
+// import Login from "./pages/Login";
+// import SignUp from "./pages/SignUp";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
