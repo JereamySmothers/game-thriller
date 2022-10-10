@@ -9,6 +9,7 @@ const GAME_HEIGHT = 500;
 
 const App = () => {
     
+  // initializes character position
     const initialCharState = {
         x: 50,
         y: 30
@@ -16,7 +17,7 @@ const App = () => {
 
     const [charPosition, setCharPosition] = useState(initialCharState);
 
-
+// uses arrow keys to move character position 
     ArrowKeysReact.config({
         left: () => {
             setCharPosition({ ...charPosition, x: charPosition.x - 4 });
