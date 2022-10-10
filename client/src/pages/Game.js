@@ -173,13 +173,13 @@ image
     
     { platformPosition:{x: createImages(platform).width * 2 + 110, y: 470,image: createImages(platformImg)}, attributes: {height: 20, width: 200}},
     
-    { platformPosition:{x: createImages(platform).width * 2 + 110, y: 470,image: createImages(platformImg)}, attributes: {height: 20, width: 200}},
+    { platformPosition:{x: createImages(platform).width * 3 + 290, y: 470,image: createImages(platformImg)}, attributes: {height: 20, width: 200}},
     
-    { platformPosition:{x: createImages(platform).width * 2 + 110, y: 470,image: createImages(platformImg)}, attributes: {height: 20, width: 200}},
+    { platformPosition:{x: createImages(platform).width * 4 + 290, y: 470,image: createImages(platformImg)}, attributes: {height: 20, width: 200}},
     
-    { platformPosition:{x: createImages(platform).width * 3 + 300, y: 470}},  
+    { platformPosition:{x: createImages(platform).width * 4 + 300, y: 470}},  
     
-    { platformPosition:{x: createImages(platform).width * 2 + 110, y: 470,image: createImages(platformImg)}, attributes: {height: 20, width: 200}},
+    { platformPosition:{x: createImages(platform).width *  + 110, y: 470,image: createImages(platformImg)}, attributes: {height: 20, width: 200}},
     //render platform images
     // ReactDOM.render(platforms, document.getElementById('root'));
     
@@ -252,7 +252,7 @@ image
     })
     platform.draw() 
     player.update()
-    //boundary
+    // undary
     if(keys.right.pressed && 
       player.position.x < 400) {
       player.velocity.x = 5
