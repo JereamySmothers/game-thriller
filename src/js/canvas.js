@@ -1,5 +1,5 @@
-// document.querySelector('.grassPlatform').src = './assets/retroSideScrollerSet/PNG/Ground/Grass/grassHalf.png'
-const img = new Image('../assets/retroSideScrollerSet/PNG/Ground/Grass/grassHalf.png')
+// import grassPlatform from '../img/grassHalf.png'
+const img = new Image()
 {/* <img class="grassPlatform" */}
 console.log('grassPlatform')
 const canvas = document.querySelector('canvas')
@@ -98,10 +98,10 @@ const canvas = document.querySelector('canvas')
       }
       this.velocity = {
         x: 0,
-        y: 1
+        y: 0
       }
-      this.width = 100
-      this.height = 100
+      this.width = 35
+      this.height = 35
     }
 
     draw() {
@@ -136,15 +136,17 @@ const canvas = document.querySelector('canvas')
       
     }
   }
-  const image = new Image()
-  img.src = grassPlatform
+  // const image = new Image()
+  img.src = "../img/grassHalf.png"
+  console.log('image')
+
   const player = new Player() 
   player.draw()
   const platforms = [
     new Platform({
       x: 200,
       y: 100,
-      image: ''
+      img
     }),
      new Platform({ x: 500, y: 200 })
      ]

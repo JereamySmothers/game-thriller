@@ -1,7 +1,7 @@
 import { platforms } from "os";
 import { useEffect, useRef, useState } from "react";
 import { createContext } from "vm";
-import char from './assets/ememy assets/PNG/2/2_enemies_1_attack_000.png';
+import playerImg from './img/Octocat.png';
 
 
 

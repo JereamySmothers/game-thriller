@@ -1,6 +1,6 @@
 // document.querySelector('.grassPlatform').src = './assets/retroSideScrollerSet/PNG/Ground/Grass/grassHalf.png'
-const img = new Image('./assets/retroSideScrollerSet/PNG/Ground/Grass/grassHalf.png')
-{/* <img class="grassPlatform" */}
+const grassPlatform = new Image('./assets/retroSideScrollerSet/PNG/Ground/Grass/grassHalf.png')
+{/* <img class="grassPlatform"/>  */}
 console.log('grassPlatform')
 const canvas = document.querySelector('canvas')
   console.log(canvas)
