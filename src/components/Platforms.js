@@ -5,6 +5,7 @@ import platform from '../img/grassHalf.png'
 import background from '../img/layer-1.png'
 import stoneHalf from '../img/stoneHalf.png'
 import reportWebVitals from './reportWebVitals';
+import { init } from "browser-sync";
 console.log('platform')
 
 const root = ReactDOM.createRoot(
@@ -24,41 +25,41 @@ const platformDisplay = () => (
 );
 ReactDOM.render(platformDisplay, document.getElementById('root'));
 
-function createScenery(imgSrc) {
+function createsceneryObject(imgSrc) {
 const image = new Image()
-image.src = platform
+image.src = imgSrc
 return image
 }
 
-const platformImg = createScenery(platform) 
+function init() {
+
+const platformImg = createsceneryObject(platform) 
 const image = new Image()
 image.src = platform
 console.log(image)
 image
 
   const platforms = [
-    { platformPosition:{x: platformImg.width -3, y: 470, image: createScenery(platformImg)}, img: createScenery(platformImg), attributes: {height: 20, width: 200}},
-    { platformPosition:{x: 500, y: 200}, img: createScenery(platform), attributes: {height: 20, width: 200}
+    { platformPosition:{x: createsceneryObject(platformImg).width -3, y: 470, image: createsceneryObject(platformImg)}, img: createsceneryObject(platformImg), attributes: {height: 20, width: 200}},
+    { platformPosition:{x: -1, y: 470}, img: createsceneryObject(platform), attributes: {height: 20, width: 200}
     //render platform images
     // ReactDOM.render(platforms, document.getElementById('root'));
   }  
      ];
-     const scenery = [
-      { platformPosition:{x: 0, y: 0}, img: '', attributes: {height: 20, width: 200}},
-      { platformPosition:{x: 500, y: 200}, img: '', attributes: {height: 20, width: 200}
+     const sceneryObject = [
+      { platformPosition:{x: 0, y: 0}, img: createsceneryObject(background)}
+      
       //render platform images
       // ReactDOM.render(platforms, document.getElementById('root'));
-    }  
        ];
 
 
-
-
-     return (
+     
       <div className="platformLayout">
         {platforms.map((platformPosition) => <Platforms platformPosition={Platforms.platformPosition} img={Platforms.img} attributes={Platforms.attributes}/>)}
+        ReactDOM.render(platformLayout, document.getElementById('root'));
       </div>
-     )
+     
   
   const keys = {
     right: {
@@ -68,13 +69,45 @@ image
       pressed: false
     }
   }
+  
+  let backgroundScrollOffset = 0  
+  
+  const Player = () => {
+   
+      this.position = {
+        x: 100,
+        y: 100
+      }
+      this.velocity = {
+        x: 0,
+        y: 0
+      }
+      this.width = 35
+      this.height = 35
+      this.image = '../img/Octocat.png'
+    }
+    { //render
+      (this.image, this.position.x, this.position.y)
+    }
+   ReactDOM.render(Player, document.getElementById('root'));
+  
 
-  let backgroundScrollOffset = 0
+    const updatePlayer = (props) => {
+    this.position.x += this.velocity.x,
+    this.position.y += this.velocity.y
+    
+    if (this.position.y += this.height +
+        this.velocity.y <= body.height)
+      this.velocity.y += gravity
+      else this.velocity.y = 0
+      ReactDOM.render(updatePlayer, document.getElementById('root'));
+    }
+  }
 
   function animation() {
     requestAnimationFrame(animation)
-    scenery.forEach(scenery => {
-      ReactDOM.render(scenery, document.getElementById('root'));
+    sceneryObject.forEach(sceneryObject => {
+      ReactDOM.render(sceneryObject, document.getElementById('root'));
     })
     platforms.forEach(platform => {
       platform.draw()
@@ -90,16 +123,24 @@ image
       player.velocity.x = -5
     } else player.velocity.x = 0
     //scrolling back
+    
+
     if (keys.right.pressed) {
       backgroundScrollOffset += 5
       platforms.forEach((platform) => {
         platform.position.x -= 5
+    })
+    sceneryObject.forEach(sceneryObject => {
+      sceneryObject.position.x -= 3
     })
       } else if (keys.left.pressed) {
         backgroundScrollOffset -= 5
 
       platforms.forEach((platform) => {
         platform.position.x += 5
+    })
+    sceneryObject.forEach(sceneryObject => {
+      sceneryObject.position.x += 3
     })
     console.log(backgroundScrollOffset)
     //platform collisions logic
@@ -118,9 +159,14 @@ image
       player.velocity.y = 0
     }
   })
+  //win condition
   if (backgroundScrollOffset > 2000) {
     console.log("YOU WIIIINNNNN!!")
   }
+
+  //lose condition
+  if (player.position.y > body.height)
+      init()
     }
   }
   ReactDOM.render(animation, document.getElementById('root'));
