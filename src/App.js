@@ -1,158 +1,62 @@
-import { platforms } from "os";
-import { useEffect, useRef, useState } from "react";
-import { createContext } from "vm";
-import playerImg from './img/Octocat.png';
+import styled from "styled-components";
+import { useState } from 'react'
+import ArrowKeysReact from 'arrow-keys-react';
+import React, { Component } from 'react';
 
-
+const CHAR_SIZE = 100;
+const GAME_WIDTH = 500;
+const GAME_HEIGHT = 500;
 
 const App = () => {
-  // const canvasRef = useRef();
-  // useEffect(() => {
-  //   const canvasWidth = window.innerWidth;
-  //   const canvasHeight = window.innerHeight;
-  //   const engine = Engine.create();
-  //   const ctx = canvasRef.current.getContext("2d");
-  //   const render = Render.create({
-  //     canvas: canvasRef.current,
-  //     engine,
-  //     options {
-  //       width: canvasWidth,
-  //       height: canvasHeight,
-        
-  //     }
-  //   });
-
-  const canvas = document.querySelector('canvas')
-  console.log(canvas)
-  const c = canvas.getContext('2d')
-  console.log(c)
-
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-
-  class Player {
-    connstructor() {
-      this.position = {
-        x: 100,
-        y: 100
-      }
-      this.velocity = {
-        x: 0,
-        y: 1
-      }
-      this.width = 100
-      this.height = 100
-    }
-
-    draw() {
-      c.fillStyle = 'red'
-      c.fileRect(this.position.x, this.position.y, this.width, this.height)
-    }
-  }
-
-  const updatePlayer = () => {
-    this.position.y += this.velocity.y
-    this.draw()
-  }
-
-  const player = new Player() 
-  player.draw()
-  const platforms = new Platforms()
-
-
-  function animation() {
-    requestAnimationFrame(animation)
-    console.log('go')
-    player.update()
-    platforms.draw() 
-
-    if(keys.right.pressed) {
-      player.velocity.x = 5
-    } else if (keys.left.pressed) {
-      player.velocity.x = -5
-    } else player.velocity.x = 0
-    //platforms collisions logic
-    if (
-      player.position.y + player.height <= 
-        platforms.position.y && 
-      player.position.y + player.height + 
-      player.velocity.y >= 
-        platforms.position.y &&
-      player.position.x + player.width >=
-       platforms.position.x &&
-      player.position.x <= platforms.
-      position.x + platforms.width
-    ) {
-      player.velocity.y = 0
-    }
     
+    const initialCharState = {
+        x: 50,
+        y: 30
     }
-  }
-  
-  class Platforms {
-    constructor() {
-      this.position = {
-        x:250,
-        y:120
-      }
 
-      this.width = 200
-      this.height = 20
-    }
-    draw() {
-      c.fillStyle = 'orange'
-      c.fillRect(this.position.x, this.position.y, this.width, this.height)
-      
-    }
-  }
-
-  return (
-    <div> 
-      {/* style={{position:`${Player.y}300px`, :}}> */}
-     
+    const [charPosition, setCharPosition] = useState(initialCharState);
 
 
-    </div>
-  )
+    ArrowKeysReact.config({
+        left: () => {
+            setCharPosition({ ...charPosition, x: charPosition.x - 4 });
+        },
+        right: () => {
+            setCharPosition({ ...charPosition, x: charPosition.x + 4 })
+        },
+        up: () => {
+            setCharPosition({ ...charPosition, y: charPosition.y - 4 })
+        },
+        down: () => {
+            setCharPosition({ ...charPosition, y: charPosition.y + 4 });
+        }
+    });
+
+
+    return (
+        <div  {...ArrowKeysReact.events} tabIndex="1">
+            <GameScreen height={GAME_HEIGHT} width={GAME_WIDTH}>
+                <Char size={CHAR_SIZE} top={charPosition.y} left={charPosition.x} />
+            </GameScreen>
+        </div>
+    )
 }
 
-export default App
+export default App;
 
-    // const controlsRef = useRef();
+const Char = styled.div`
+  position: center;
+  background-color: red;
+  height: ${(props) => props.size}px;
+  width: ${(props) => props.size}px;
+  top: ${(props) => props.top}px;
+  left: ${(props) => props.left}px;
+  border-radius: 50%;
+`;
 
-    // useEffect(() => {
-    //     controlsRef.current.focus();
-    //     console.log(controlsRef.current);
-    // }, []);
-
-    // const initialCharState = {
-    //     image: char,
-    //     x: 500,
-    //     y: 300
-    // }
-    // const [character, updateCharacter] = useState(initialCharState);
-    // const [keysPressed, setKeysPressed] = useState({});
-
-    // const controls = (e) => {
-
-    //     setKeysPressed({...keysPressed, [e.key] : true});
-
-    //     if(keysPressed['d']) {
-    //         updateCharacter({...character, x: character.x + 4})
-    //     }
-    //     if(keysPressed['a']) {
-    //         updateCharacter({...character, x: character.x - 4})
-    //     }
-    //     if(keysPressed['j'] && keysPressed['d']) {
-    //         updateCharacter({...character, x: character.x + 4});
-    //         updateCharacter({...character, x: character.x + 4, y: character.y - 10});
-            
-    //     }
-    // }
-
-
-        // <div tabIndex={0} onKeyUp={(e) => setKeysPressed({...keysPressed, [e.key] : false})} onKeyDown={controls} ref={controlsRef} style={{width: '1000px', height: '1000px'}}  >
-        //     <div  style={{ position: "absolute", top: `${character.y}px`, left: `${character.x}px` }}>
-        //         <img alt="character" src={character.image} />
-        //     </div>
-        // </div>
+const GameScreen = styled.div`
+  height: ${(props) => props.height}px;
+  width: ${(props) => props.width}px;
+  background-color: black;
+  overflow: hidden;
+`;
