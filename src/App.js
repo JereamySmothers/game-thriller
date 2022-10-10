@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useState } from 'react'
 import ArrowKeysReact from 'arrow-keys-react';
 import React, { Component } from 'react';
-
+import Platforms from "./components/Platforms";
 const CHAR_SIZE = 100;
 const GAME_WIDTH = 500;
 const GAME_HEIGHT = 500;
