@@ -169,11 +169,20 @@ image.src = platform
 image
 
   let platforms = [
-    { platformPosition:{x: createImages(platformImg).width -3, y: 470, image: createImages(platformImg)}, img: createImages(platformImg), attributes: {height: 20, width: 200}},
-    { platformPosition:{x: -1, y: 470}, img: createImages(platform), attributes: {height: 20, width: 200}
+    { platformPosition:{x: createImages(platformImg).width -3, y: 470, image: createImages(platformImg)}, attributes: {height: 20, width: 200}},
+    
+    { platformPosition:{x: createImages(platform).width * 2 + 110, y: 470,image: createImages(platformImg)}, attributes: {height: 20, width: 200}},
+    
+    { platformPosition:{x: createImages(platform).width * 2 + 110, y: 470,image: createImages(platformImg)}, attributes: {height: 20, width: 200}},
+    
+    { platformPosition:{x: createImages(platform).width * 2 + 110, y: 470,image: createImages(platformImg)}, attributes: {height: 20, width: 200}},
+    
+    { platformPosition:{x: createImages(platform).width * 3 + 300, y: 470}},  
+    
+    { platformPosition:{x: createImages(platform).width * 2 + 110, y: 470,image: createImages(platformImg)}, attributes: {height: 20, width: 200}},
     //render platform images
     // ReactDOM.render(platforms, document.getElementById('root'));
-  }  
+    
      ];
      let sceneryObject = [
       { platformPosition:{x: 0, y: 0}, img: createImages(background)}
@@ -185,7 +194,7 @@ image
 
      
       <div className="platformLayout">
-        {platforms.map((platformPosition) => <Platforms platformPosition={Platforms.platformPosition} img={Platforms.img} attributes={Platforms.attributes}/>)}
+        {platforms.map((platformPosition) => <Platforms platformPosition={Platforms.platformPosition} image={Platforms.image} attributes={Platforms.attributes}/>)}
         ReactDOM.render(platformLayout, document.getElementById('root'));
       </div>
      
