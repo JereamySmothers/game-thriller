@@ -62,7 +62,11 @@ const App = () => {
               <Route 
                 path="/login" 
                 element={<Login />} 
-              /> */}
+              />  */}
+              <Route 
+              path="/Game" 
+              element={<Game />} 
+            />
             </Routes>
           </div>
         </Router>

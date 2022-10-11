@@ -1,17 +1,12 @@
 import React, { components } from "react";
 import ReactDOM from 'react-dom/client';
-import App from './App';
+import App from '../App';
 import platform from '../assets/img/grassHalf.png'
 import octocat from '../assets/Octocat_small.png'
 import background from '../assets/img/layer-1.png'
 import stoneHalf from '../assets/img/stoneHalf.png'
-import reportWebVitals from './reportWebVitals';
-import { init } from "browser-sync";
-console.log('platform')
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root')
-);
+console.log('platform')
 
 const Game = () => {
 // playerImg.src = '../img/Octocat.png'
@@ -31,6 +26,35 @@ return image
 }
 
 // function init() {}
+
+const platforms = [
+  { platformPosition:{x: createImages(platformImg).width -3, y: 470, image: createImages(platformImg)}, attributes: {height: 20, width: 200}},
+  
+  { platformPosition:{x: createImages(platform).width * 2 + 110, y: 470,image: createImages(platformImg)}, attributes: {height: 20, width: 200}},
+  
+  { platformPosition:{x: createImages(platform).width * 3 + 290, y: 470,image: createImages(platformImg)}, attributes: {height: 20, width: 200}},
+  
+  { platformPosition:{x: createImages(platform).width * 4 + 290, y: 470,image: createImages(platformImg)}, attributes: {height: 20, width: 200}},
+  
+  { platformPosition:{x: createImages(platform).width * 4 + 300, y: 470}},  
+  
+  { platformPosition:{x: createImages(platform).width * 5  + 300, y: 470,image: createImages(platformImg)}, attributes: {height: 20, width: 200}},
+  //render platform images
+  // ReactDOM.render(platforms, document.getElementById('root'));
+  
+   ];
+   const sceneryObject = [
+    { platformPosition:{x: 0, y: 0}, img: createImages(background)}
+   ];
+   
+    //render platform images
+    // ReactDOM.render(platforms, document.getElementById('root'));
+    
+
+    const  platformLayout = () => {
+      {platforms.map((platformPosition) => <platforms platformPosition={platforms.platformPosition} image={platforms.image} attributes={platforms.attributes}/>)}
+      
+    }
 
 const keys = {
   right: {
@@ -68,71 +92,85 @@ const player = () => {
 
 
   const updateplayer = (props) => { 
-  
+    return (
+      this.position.x += this.velocity.x,
+      this.position.y += this.velocity.y); 
+
   if (this.position.y += this.height +
       this.velocity.y <= document.height)
     this.velocity.y += gravity
     else this.velocity.y = 0
-
-    return (
-      this.position.x += this.velocity.x,
-      this.position.y += this.velocity.y); }
-      
-    ReactDOM.render(updateplayer, document.getElementById('root'));
+  }
   
 
 // init()
 
+const platformImg = createImages(platform) 
+const image = new Image()
+image.src = platform
+ console.log(image)
+//  const Octocat = createImages(playerImg)
+
+ 
+    
+
+document.addEventListener('keydown', ({ key }) => {
+  console.log(key)
+  switch (key) {
+    case 65:
+      console.log('left')
+      keys.left.pressed = false
+      break
+
+      case 83:
+        console.log('down')
+        break
+
+      case 68:
+        console.log('right')
+        keys.right.pressed = false
+        break
+
+        case 87:
+          console.log('up')
+          player.velocity.y -= 20
+          break
+          default:
+  
+}
+  console.log(keys.right.pressed)
+})
+
+
+document.addEventListener('keyup', ({ key }) => {
+  console.log(key)
+  switch (key) {
+    case 65:
+      console.log('left')
+      keys.left.pressed = false
+      break
+
+      case 83:
+        console.log('down')
+        break
+
+      case 68:
+        console.log('right')
+        keys.right.pressed = false
+        break
+
+        case 87:
+          console.log('up')
+          player.velocity.y -= 20
+          break
+          default:
+  }
+  console.log(keys.right.pressed)
+})
+
  function animation() {
  
-  addEventListener('keydown', ({ keyCode }) => {
-    console.log(keyCode)
-    switch (keyCode) {
-      case 65:
-        console.log('left')
-        keys.left.pressed = false
-        break
-
-        case 83:
-          console.log('down')
-          break
-
-        case 68:
-          console.log('right')
-          keys.right.pressed = false
-          break
-
-          case 87:
-            console.log('up')
-            player.velocity.y -= 20
-            break
-    }
-    console.log(keys.right.pressed)
-  })
-  addEventListener('keyup', ({ keyCode }) => {
-    console.log(keyCode)
-    switch (keyCode) {
-      case 65:
-        console.log('left')
-        keys.left.pressed = false
-        break
-
-        case 83:
-          console.log('down')
-          break
-
-        case 68:
-          console.log('right')
-          keys.right.pressed = false
-          break
-
-          case 87:
-            console.log('up')
-            player.velocity.y -= 20
-            break
-    }
-    console.log(keys.right.pressed)
-  })
+  
   requestAnimationFrame(animation)
 
   sceneryObject.forEach(sceneryObject => {
@@ -200,43 +238,46 @@ ReactDOM.render(animation, document.getElementById('root'));
   }
 }
 
+} 
+
+export default Game
 //  function init() {}
 
-const platformImg = createImages(platform) 
-const image = new Image()
-image.src = platform
- console.log(image)
-//  const Octocat = createImages(playerImg)
+// const platformImg = createImages(platform) 
+// const image = new Image()
+// image.src = platform
+//  console.log(image)
+// //  const Octocat = createImages(playerImg)
 
-  const platforms = [
-    { platformPosition:{x: createImages(platformImg).width -3, y: 470, image: createImages(platformImg)}, attributes: {height: 20, width: 200}},
+//   const platforms = [
+//     { platformPosition:{x: createImages(platformImg).width -3, y: 470, image: createImages(platformImg)}, attributes: {height: 20, width: 200}},
     
-    { platformPosition:{x: createImages(platform).width * 2 + 110, y: 470,image: createImages(platformImg)}, attributes: {height: 20, width: 200}},
+//     { platformPosition:{x: createImages(platform).width * 2 + 110, y: 470,image: createImages(platformImg)}, attributes: {height: 20, width: 200}},
     
-    { platformPosition:{x: createImages(platform).width * 3 + 290, y: 470,image: createImages(platformImg)}, attributes: {height: 20, width: 200}},
+//     { platformPosition:{x: createImages(platform).width * 3 + 290, y: 470,image: createImages(platformImg)}, attributes: {height: 20, width: 200}},
     
-    { platformPosition:{x: createImages(platform).width * 4 + 290, y: 470,image: createImages(platformImg)}, attributes: {height: 20, width: 200}},
+//     { platformPosition:{x: createImages(platform).width * 4 + 290, y: 470,image: createImages(platformImg)}, attributes: {height: 20, width: 200}},
     
-    { platformPosition:{x: createImages(platform).width * 4 + 300, y: 470}},  
+//     { platformPosition:{x: createImages(platform).width * 4 + 300, y: 470}},  
     
-    { platformPosition:{x: createImages(platform).width * 5  + 300, y: 470,image: createImages(platformImg)}, attributes: {height: 20, width: 200}},
-    //render platform images
-    // ReactDOM.render(platforms, document.getElementById('root'));
+//     { platformPosition:{x: createImages(platform).width * 5  + 300, y: 470,image: createImages(platformImg)}, attributes: {height: 20, width: 200}},
+//     //render platform images
+//     // ReactDOM.render(platforms, document.getElementById('root'));
     
-     ];
-     const sceneryObject = [
-      { platformPosition:{x: 0, y: 0}, img: createImages(background)}
-     ];
+//      ];
+//      const sceneryObject = [
+//       { platformPosition:{x: 0, y: 0}, img: createImages(background)}
+//      ];
      
-      //render platform images
-      // ReactDOM.render(platforms, document.getElementById('root'));
+//       //render platform images
+//       // ReactDOM.render(platforms, document.getElementById('root'));
       
 
-      <div className="platformLayout">
-        {platforms.map((platformPosition) => <platforms platformPosition={platforms.platformPosition} image={platforms.image} attributes={platforms.attributes}/>)}
+//       const  platformLayout = () => {
+//         {platforms.map((platformPosition) => <platforms platformPosition={platforms.platformPosition} image={platforms.image} attributes={platforms.attributes}/>)}
         
-      </div>
-     
+//       }
+//      ReactDOM.render(platformLayout, document.getElementById('root'))
   
   // const keys = {
   //   right: {
@@ -359,9 +400,7 @@ image.src = platform
 
   //   }
   // }
-} 
 
-export default Game
 
 //   import styled from "styled-components";
 // import { useState } from 'react'
