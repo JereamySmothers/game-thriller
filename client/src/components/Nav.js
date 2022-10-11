@@ -114,6 +114,9 @@ function NavBar() {
           </div>
         </div>
       </div>
+      
+       {/* highscores section*/}
+
       <div
         class="modal fade"
         id="high-score"
@@ -121,8 +124,6 @@ function NavBar() {
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-
-        {/* highscores section*/}
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -153,6 +154,8 @@ function NavBar() {
           </div>
         </div>
       </div>
+
+      {/* signup */}
       <div
         class="modal fade"
         id="signup"
@@ -160,21 +163,12 @@ function NavBar() {
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-
-        {/* signup section*/}
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">
-                Sign Up
-              </h1>
+            <h4 class="modal-title w-100 font-weight-bold">Sign up</h4>
               <SignUp />
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">...</div>
             <div class="modal-footer">
@@ -185,22 +179,20 @@ function NavBar() {
               >
                 Close
               </button>
-              <button type="button" class="btn btn-primary">
-                Save changes
-              </button>
+              <button type="button" class="btn btn-deep-orange" data-bs-dismiss="modal">Submit</button>
             </div>
           </div>
         </div>
       </div>
+
+      {/* login */}
       <div
         class="modal fade"
-        id="Login"
+        id="signup"
         tabindex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-
-        {/* login */}
         <div className="login">
           <div class="login-container">
             <div class="login-header">
