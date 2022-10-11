@@ -258,11 +258,13 @@ image
     if(keys.right.pressed && 
       player.position.x < 400) {
       player.velocity.x = 5
-    } else if (keys.left.pressed&& 
-      player.position.x > 100) {
-      player.velocity.x = -5
-    } else player.velocity.x = 0
-    //scrolling back
+    } else if ((keys.left.pressed && player.position.x > 100) 
+      || (keys.left.pressed && backgroundScrollOffset === 0 && player.position.x > 0)
+      ) { player.velocity.x = -player.velocity.x 
+   } else {
+        player.velocity.x = 0;
+      }
+      
     if (keys.right.pressed) {
       backgroundScrollOffset += 5
       platforms.forEach((platform) => {
