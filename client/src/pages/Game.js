@@ -1,9 +1,9 @@
 import React, { components } from "react";
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import platform from '../img/grassHalf.png'
-import background from '../img/layer-1.png'
-import stoneHalf from '../img/stoneHalf.png'
+import platform from '../assets/img/grassHalf.png'
+import background from '../assets/img/layer-1.png'
+import stoneHalf from '../assets/img/stoneHalf.png'
 import reportWebVitals from './reportWebVitals';
 import { init } from "browser-sync";
 console.log('platform')
@@ -60,7 +60,7 @@ let platforms = [];
   
   backgroundScrollOffset = 0  
   
-  const Player = () => {
+  const player = () => {
       player.velocity.y -= 10
       this.speed = 10
       this.position = {
@@ -78,10 +78,10 @@ let platforms = [];
     { //render
       (this.image, this.position.x, this.position.y)
     }
-   ReactDOM.render(Player, document.getElementById('root'));
+   ReactDOM.render(player, document.getElementById('root'));
   
 
-    const updatePlayer = (props) => {
+    const updateplayer = (props) => {
     this.position.x += this.velocity.x,
     this.position.y += this.velocity.y
     
@@ -89,7 +89,7 @@ let platforms = [];
         this.velocity.y <= document.height)
       this.velocity.y += gravity
       else this.velocity.y = 0
-      ReactDOM.render(updatePlayer, document.getElementById('root'));
+      ReactDOM.render(updateplayer, document.getElementById('root'));
     }
   }
 
@@ -148,9 +148,10 @@ let platforms = [];
       player.velocity.y = 0
     }
   })
-  //win condition
-  if (backgroundScrollOffset > 2000) {
-    console.log("YOU WIIIINNNNN!!")
+  //win 
+  //using final platform x condition
+  if (backgroundScrollOffset > createImages(platform).width * 5  + 700) {
+    console.log("YOU WIN!!")
   }
 
   //lose condition
@@ -180,7 +181,7 @@ image
     
     { platformPosition:{x: createImages(platform).width * 4 + 300, y: 470}},  
     
-    { platformPosition:{x: createImages(platform).width *  + 110, y: 470,image: createImages(platformImg)}, attributes: {height: 20, width: 200}},
+    { platformPosition:{x: createImages(platform).width * 5  + 300, y: 470,image: createImages(platformImg)}, attributes: {height: 20, width: 200}},
     //render platform images
     // ReactDOM.render(platforms, document.getElementById('root'));
     
@@ -211,7 +212,7 @@ image
   
   let backgroundScrollOffset = 0  
   
-  let Player = () => {
+  let player = () => {
    
       this.position = {
         x: 100,
@@ -228,10 +229,10 @@ image
     { //render
       (this.image, this.position.x, this.position.y)
     }
-   ReactDOM.render(Player, document.getElementById('root'));
+   ReactDOM.render(player, document.getElementById('root'));
   
 
-    const updatePlayer = (props) => {
+    const updateplayer = (props) => {
     this.position.x += this.velocity.x,
     this.position.y += this.velocity.y
     
@@ -239,7 +240,7 @@ image
         this.velocity.y <= document.height)
       this.velocity.y += gravity
       else this.velocity.y = 0
-      ReactDOM.render(updatePlayer, document.getElementById('root'));
+      ReactDOM.render(updateplayer, document.getElementById('root'));
     }
  }
   init()
@@ -406,3 +407,42 @@ image
     //  new Platform({ x: 500, y: 200 })
   // const image = new Image()
   // img.src = '../img/grassHalf.png
+
+  //extra home code
+
+//   const initialCharState = {
+//     image: char,
+//     x: 500,
+//     y: 300,
+//   };
+//   const [character, updateCharacter] = useState(initialCharState);
+
+//   const controls = (e) => {
+//     console.log(e);
+//     if (e.key === "d") {
+//       updateCharacter({ ...character, x: character.x + 4 });
+//     }
+//     if (e.key === "a") {
+//       updateCharacter({ ...character, x: character.x - 4 });
+//     }
+//   };
+
+//   return (
+//     <div
+//       tabIndex={0}
+//       onKeyDown={controls}
+//       ref={controlsRef}
+//       style={{ width: "1000px", height: "1000px" }}
+//     >
+//       <div
+//         style={{
+//           position: "absolute",
+//           top: `${character.y}px`,
+//           left: `${character.x}px`,
+//         }}
+//       >
+//         <img alt="character" src={character.image} />
+//       </div>
+//     </div>
+//   );
+// }
