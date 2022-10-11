@@ -3,7 +3,6 @@ import HighScores from "../pages/HighScores";
 import SignUp from "../pages/SignUp";
 import Login from "../pages/Login";
 
-
 function NavBar() {
   return (
     <nav className="navbar navbar-expand-lg bg-light">
@@ -75,7 +74,6 @@ function NavBar() {
   Launch demo modal
 </button> */}
 
-    {/* inventory section */}
       <div
         class="modal fade"
         id="inventory"
@@ -83,10 +81,10 @@ function NavBar() {
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h1 className="modal-title fs-5" id="exampleModalLabel">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
                 Inventory
               </h1>
               <button
@@ -96,10 +94,10 @@ function NavBar() {
                 aria-label="Close"
               ></button>
             </div>
-            <div className="modal-body">
+            <div class="modal-body">
               <Inventory />
             </div>
-            <div className="modal-footer">
+            <div class="modal-footer">
               <button
                 type="button"
                 class="btn btn-secondary"
@@ -114,9 +112,6 @@ function NavBar() {
           </div>
         </div>
       </div>
-      
-       {/* highscores section*/}
-
       <div
         class="modal fade"
         id="high-score"
@@ -154,8 +149,6 @@ function NavBar() {
           </div>
         </div>
       </div>
-
-      {/* signup */}
       <div
         class="modal fade"
         id="signup"
@@ -166,9 +159,16 @@ function NavBar() {
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-            <h4 class="modal-title w-100 font-weight-bold">Sign up</h4>
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Sign Up
+              </h1>
               <SignUp />
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
             </div>
             <div class="modal-body">...</div>
             <div class="modal-footer">
@@ -179,24 +179,26 @@ function NavBar() {
               >
                 Close
               </button>
-              <button type="button" class="btn btn-deep-orange" data-bs-dismiss="modal">Submit</button>
+              <button type="button" class="btn btn-primary">
+                Save changes
+              </button>
             </div>
           </div>
         </div>
       </div>
-
-      {/* login */}
       <div
         class="modal fade"
-        id="signup"
+        id="Login"
         tabindex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div className="login">
-          <div class="login-container">
-            <div class="login-header">
-              <h1>Please Login to contine </h1>
+        <div className="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Login
+              </h1>
               <button
                 type="button"
                 class="btn-close"

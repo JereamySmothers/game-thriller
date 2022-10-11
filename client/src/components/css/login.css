@@ -1,0 +1,22 @@
+.login {
+    width: 100%;
+    height: 60vh;
+    position: relative;
+}
+
+.login h1 {
+    font-size: 2.4rem;
+}
+
+#label::placeholder {
+color: white;
+}
+
+#label {
+    border: none;
+    border-bottom: 1px solid #3a3a3a;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    outline: none;
+    padding: 0px 0px 5px 5px;
+}
