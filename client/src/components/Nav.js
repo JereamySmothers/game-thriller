@@ -3,6 +3,7 @@ import HighScores from "../pages/HighScores";
 import SignUp from "../pages/SignUp";
 import Login from "../pages/Login";
 
+
 function NavBar() {
   return (
     <nav className="navbar navbar-expand-lg bg-light">
@@ -74,6 +75,7 @@ function NavBar() {
   Launch demo modal
 </button> */}
 
+    {/* inventory section */}
       <div
         class="modal fade"
         id="inventory"
@@ -81,10 +83,10 @@ function NavBar() {
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h1 className="modal-title fs-5" id="exampleModalLabel">
                 Inventory
               </h1>
               <button
@@ -94,10 +96,10 @@ function NavBar() {
                 aria-label="Close"
               ></button>
             </div>
-            <div class="modal-body">
+            <div className="modal-body">
               <Inventory />
             </div>
-            <div class="modal-footer">
+            <div className="modal-footer">
               <button
                 type="button"
                 class="btn btn-secondary"
@@ -119,6 +121,8 @@ function NavBar() {
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
+
+        {/* highscores section*/}
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -156,6 +160,8 @@ function NavBar() {
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
+
+        {/* signup section*/}
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -193,12 +199,12 @@ function NavBar() {
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">
-                Login
-              </h1>
+
+        {/* login */}
+        <div className="login">
+          <div class="login-container">
+            <div class="login-header">
+              <h1>Please Login to contine </h1>
               <button
                 type="button"
                 class="btn-close"
