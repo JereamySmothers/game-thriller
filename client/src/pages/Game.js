@@ -4,12 +4,14 @@ import App from '../App';
 import platform from '../assets/img/grassHalf.png'
 import octocat from '../assets/Octocat_small.png'
 import background from '../assets/img/layer-1.png'
-import stoneHalf from '../assets/img/stoneHalf.png'
+import stonePlatform from '../assets/img/stoneHalf.png'
 
 console.log('platform')
 
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
+console.log(c)
+console.log(canvas)
 
 const Game = () => {
 // playerImg.src = '../img/Octocat.png'
@@ -46,15 +48,15 @@ canvas.height = 576;
       }
       this.width = 35
       this.height = 35
-      octocat = '../assets/Octocat_small.png'
+      // octocat = '../assets/Octocat_small.png'
     }
   
       draw() {
-        c.fillStyle = 'orange'
+        c.fillStyle = '#FFA500'
         c.fillRect(this.position.x, this.position.y, this.width, this.height)
     }
    
-      updateplayer = (props) => { 
+      updateplayer = () => { 
       
     if (this.position.y += this.height +
         this.velocity.y <= canvas.height)
@@ -67,40 +69,31 @@ canvas.height = 576;
         </div>
         ); 
     }
-    
-    function createImage(imageSrc) {
-      const image = new Image()
-      image.src = imageSrc
-      return image
-    }
+  }
+
+  function createImage(imageSrc) {
+    const image = new Image()
+    image.src = imageSrc
+    return image
+  }
   // init()
   
+  
   class Platform {
-    constructor({ x, y, image, block, text }) {
+    constructor({ x, y, image }) {
       this.position = {
         x,
         y
       }
   
-      this.velocity = {
-        x: 0
-      }
-  
       this.image = image
       this.width = image.width
       this.height = image.height
-      this.block = block
-      this.text = text
     }
   
     draw() {
       c.drawImage(this.image, this.position.x, this.position.y)
   
-      if (this.text) {
-        c.font = '20px Arial'
-        c.fillStyle = 'red'
-        c.fillText(this.text, this.position.x, this.position.y)
-      }
     }
   
     update() {
@@ -133,98 +126,57 @@ canvas.height = 576;
     }
   }
 
-  const platformImg = createImages(platform) 
-
+  const createImg = (imgSrc) => {
   const image = new Image()
-  image.src = platform
-   console.log(image)
+  image.src = imgSrc
+   return image
+  }
+  const backgroundImg = createImage(background)
+  const stonePlatformImg = createImg(stonePlatform)
+  const platformImg = createImg(platform)
+  
+  const player = new Player()
+  
+  const platforms = [
+    new Platform({
+      x: platformImg.width -3,
+      y: 470,
+      image: platformImg
+    }),
     //COMPARE TO placemnet with mine
-   platforms = [
     new Platform({
-      x: 908 + 100,
-      y: 300,
-      image: blockTriImage,
-      block: true
+      x: platformImg.width * 2 + 110,
+      y: 470,
+      image: platformImg
     }),
     new Platform({
-      x: 908 + 100 + blockImage.width,
-      y: 100,
-      image: blockImage,
-      block: true
+      x: platformImg.width * 3 + 290,
+      y: 470,
+      image: platformImg
     }),
     new Platform({
-      x: 1991 + lgPlatformImage.width - tPlatformImage.width,
-      y: canvas.height - lgPlatformImage.height - tPlatformImage.height,
-      image: tPlatformImage,
-      block: false
+      x: platformImg.width * 4 + 290,
+      y: 470,
+      image: platformImg
     }),
     new Platform({
-      x: 1991 + lgPlatformImage.width - tPlatformImage.width - 100,
-      y:
-        canvas.height -
-        lgPlatformImage.height -
-        tPlatformImage.height +
-        blockImage.height,
-      image: blockImage,
-      block: true
+      x: platformImg.width * 4 + 300 -3,
+      y: 470,
+      image: platformImg
     }),
     new Platform({
-      x: 5712 + xtPlatformImage.width + 175,
-      y: canvas.height - xtPlatformImage.height,
-      image: blockImage,
-      block: true,
-      text: 5712 + xtPlatformImage.width + 175
+      x: platformImg.width * 5 + 700 -3,
+      y: 470,
+      image: createImg(stonePlatformImg)
     }),
-    new Platform({
-      x: 6116 + 175,
-      y: canvas.height - xtPlatformImage.height,
-      image: blockImage,
-      block: true
-    }),
-    new Platform({
-      x: 6116 + 175 * 2,
-      y: canvas.height - xtPlatformImage.height,
-      image: blockImage,
-      block: true
-    }),
-    new Platform({
-      x: 6116 + 175 * 3,
-      y: canvas.height - xtPlatformImage.height - 100,
-      image: blockImage,
-      block: true
-    }),
-    new Platform({
-      x: 6116 + 175 * 4,
-      y: canvas.height - xtPlatformImage.height - 200,
-      image: blockTriImage,
-      block: true
-    }),
-    new Platform({
-      x: 6116 + 175 * 4 + blockTriImage.width,
-      y: canvas.height - xtPlatformImage.height - 200,
-      image: blockTriImage,
-      block: true,
-      text: 6116 + 175 * 4 + blockTriImage.width
-    }),
-    new Platform({
-      x: 6968 + 300,
-      y: canvas.height - lgPlatformImage.height,
-      image: lgPlatformImage,
-      block: true,
-      text: 6968 + 300
-    })
   ]
-  genericObjects = [
-    new GenericObject({
+
+  const sceneryObjects = [
+    new SceneryObject({
       x: -1,
       y: -1,
-      image: createImage(background)
+      image: backgroundImg
     }),
-    new GenericObject({
-      x: -1,
-      y: -1,
-      image: createImage(hills)
-    })
   ]
   //  const Octocat = createImages(playerImg)
 
@@ -247,7 +199,7 @@ canvas.height = 576;
 //    ];
 
 
-//    const sceneryObject = [
+//    const sceneryObjects = [
 //     { platformPosition:{x: 0, y: 0}, img: createImages(background)}
 //    ];
    
@@ -265,11 +217,12 @@ canvas.height = 576;
 
  function animation() {
   // <div className="Animation">
-
   requestAnimationFrame(animation)
+  c.fillStyle = "white"
+  c.fillRect(0, 0, canvas.width, canvas.height)
 
-  sceneryObject.forEach(sceneryObject => {
-    
+  sceneryObjects.forEach(sceneryObject => {
+    sceneryObject.draw()
   })
   platforms.forEach(platform => {
     platform.draw()
@@ -290,7 +243,7 @@ canvas.height = 576;
     platforms.forEach((platform) => {
       platform.position.x -= 5
   })
-  sceneryObject.forEach(sceneryObject => {
+  sceneryObjects.forEach(sceneryObject => {
     sceneryObject.position.x -= 3
   })
     } else if (keys.left.pressed) {
@@ -299,7 +252,7 @@ canvas.height = 576;
     platforms.forEach((platform) => {
       platform.position.x += 5
   })
-  sceneryObject.forEach(sceneryObject => {
+  sceneryObjects.forEach(sceneryObject => {
     sceneryObject.position.x += 3
   })
   console.log(backgroundScrollOffset)
@@ -319,17 +272,19 @@ canvas.height = 576;
     player.velocity.y = 0
   }
 })
-//win 
+ }
+//win condition
+
 //using final platform x condition
-if (backgroundScrollOffset > createImages(platform).width * 5  + 700) {
+if (backgroundScrollOffset > createImage(platform).width * 5  + 700) {
   console.log("YOU WIN!!")
 }
   //lose condition
 if (player.position.y > canvas.height) {
   console.log('you lose!')
 }
+animation();
 
-}
 canvas.addEventListener('keydown', ({ key }) => {
   console.log(key)
   switch (key) {
@@ -385,6 +340,7 @@ canvas.addEventListener('keyup', ({ key }) => {
 })
 
 }
+
 export default Game
 //  function init() {}
 
@@ -410,7 +366,7 @@ export default Game
 
     
 //      ];
-//      const sceneryObject = [
+//      const sceneryObjects = [
 //       { platformPosition:{x: 0, y: 0}, img: createImages(background)}
 //      ];
      
