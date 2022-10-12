@@ -40,7 +40,7 @@ function Home() {
           left: `${character.x}px`,
         }}
       >
-        <img alt="character" src={character.image} />
+        <img id="octocat" alt="character" src={character.image} />
       </div>
     </div>
   );
