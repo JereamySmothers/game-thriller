@@ -14,16 +14,74 @@ const Game = () => {
 document.width = 1024;
 document.height = 576;
 
-const platformDisplay = () => (
+const platformDisplay = () => {
+
+    return ( <div className="PlatformDisplay">
   (this.image, this.position.x, this.position.y)
-);
+  </div>
+    );
+  }
+  const keys = {
+    right: {
+      pressed: false
+    },
+    left: {
+      pressed: false
+    }
+  }
+  
+  let backgroundScrollOffset = 0  
+  
+  const gravity = 0.5
+  
+  const player = () => {
+  
+      this.position = {
+        x: 100,
+        y: 100
+      }
+      this.velocity = {
+        x: 0,
+        y: 0
+      }
+      this.width = 35
+      this.height = 35
+      octocat = '../assets/Octocat_small.png'
+     //render
+     return (
+      <div className="Player">  
+      (this.octocat, this.position.x, this.position.y, this.width, this.height)
+      </div>
+    );
+    }
+   
+    const updateplayer = (props) => { 
+      
+    if (this.position.y += this.height +
+        this.velocity.y <= document.height)
+      this.velocity.y += gravity
+      else this.velocity.y = 0
+      return (
+        <div className="update">
+        this.position.x += this.velocity.x,
+        this.position.y += this.velocity.y
+        </div>
+        ); 
+    }
+    
+    function createImages(imgSrc) {
+      const image = new Image()
+      image.src = imgSrc
+      return image
+      }
+  // init()
+  
+  const platformImg = createImages(platform) 
 
-
-function createImages(imgSrc) {
-const image = new Image()
-image.src = imgSrc
-return image
-}
+  const image = new Image()
+  image.src = platform
+   console.log(image)
+  //  const Octocat = createImages(playerImg)
 
 // function init() {}
 
@@ -40,76 +98,24 @@ const platforms = [
   
   { platformPosition:{x: createImages(platform).width * 5  + 300, y: 470,image: createImages(platformImg)}, attributes: {height: 20, width: 200}},
   //render platform images
-  
-  
    ];
+
+
    const sceneryObject = [
     { platformPosition:{x: 0, y: 0}, img: createImages(background)}
    ];
    
     //render platform images
    
-    
-
-    const  platformLayout = () => {
+    function platformLayout() {
+      return (
+        <div className="platformLayout">
       {platforms.map((platformPosition) => <platforms platformPosition={platforms.platformPosition} image={platforms.image} attributes={platforms.attributes}/>)}
-      
+      </div>
+      );
     }
 
-const keys = {
-  right: {
-    pressed: false
-  },
-  left: {
-    pressed: false
-  }
-}
 
-let backgroundScrollOffset = 0  
-
-const gravity = 0.5
-
-const player = () => {
- 
-    this.position = {
-      x: 100,
-      y: 100
-    }
-    this.velocity = {
-      x: 0,
-      y: 0
-    }
-    this.width = 35
-    this.height = 35
-    octocat = '../assets/Octocat_small.png'
-   //render
-    return (
-    (this.octocat, this.position.x, this.position.y, this.width, this.height)
-    );
-  }
-
- 
-
-
-  const updateplayer = (props) => { 
-    return (
-      this.position.x += this.velocity.x,
-      this.position.y += this.velocity.y); 
-
-  if (this.position.y += this.height +
-      this.velocity.y <= document.height)
-    this.velocity.y += gravity
-    else this.velocity.y = 0
-  }
-  
-
-// init()
-
-const platformImg = createImages(platform) 
-const image = new Image()
-image.src = platform
- console.log(image)
-//  const Octocat = createImages(playerImg)
 
  
     
@@ -169,8 +175,8 @@ document.addEventListener('keyup', ({ key }) => {
 })
 
  function animation() {
- 
-  
+  // <div className="Animation">
+
   requestAnimationFrame(animation)
 
   sceneryObject.forEach(sceneryObject => {
@@ -200,7 +206,7 @@ document.addEventListener('keyup', ({ key }) => {
   })
     } else if (keys.left.pressed) {
       backgroundScrollOffset -= 5
-
+    }
     platforms.forEach((platform) => {
       platform.position.x += 5
   })
@@ -229,17 +235,14 @@ document.addEventListener('keyup', ({ key }) => {
 if (backgroundScrollOffset > createImages(platform).width * 5  + 700) {
   console.log("YOU WIN!!")
 }
-
-//lose condition
-if (player.position.y > document.height)
-
-
-
-}
+  //lose condition
+if (player.position.y > document.height) {
+  console.log('you lose!')
 }
 
-} 
+}
 
+}
 export default Game
 //  function init() {}
 
