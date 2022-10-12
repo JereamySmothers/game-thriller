@@ -82,10 +82,10 @@ function NavBar() {
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h1 className="modal-title fs-5" id="exampleModalLabel">
                 Inventory
               </h1>
               <button
@@ -95,7 +95,7 @@ function NavBar() {
                 aria-label="Close"
               ></button>
             </div>
-            <div class="modal-body">
+            <div className="modal-body">
               <Inventory />
             </div>
             <div class="modal-footer">
@@ -122,10 +122,10 @@ function NavBar() {
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog">
+        <div className="modal-dialog">
           <div id="high" class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">
+            <div className="modal-header">
+              <h1 className="modal-title fs-5" id="exampleModalLabel">
                 Commit your high sore?
               </h1>
               <HighScores />
@@ -136,7 +136,7 @@ function NavBar() {
                 aria-label="Close"
               ></button>
             </div>
-            <div class="modal-body">
+            <div className="modal-body">
             <label for="name">
                 <b>Enter initials</b>
               </label>
@@ -166,9 +166,9 @@ function NavBar() {
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog">
+        <div className="modal-dialog">
           <div id="signup" class="modal-content">
-            <div class="modal-header">
+            <div className="modal-header">
               <h1 class="modal-title fs-5" id="exampleModalLabel">
                 Please SignUp to continue:
               </h1>
@@ -180,7 +180,7 @@ function NavBar() {
                 aria-label="Close"
               ></button>
             </div>
-            <div class="modal-body">
+            <div className="modal-body">
               <label for="name">
                 <b>Player Name</b>
               </label>
@@ -221,15 +221,15 @@ function NavBar() {
 
       {/* login section */}
       <div
-        class="modal fade"
+        className="modal fade"
         id="signup"
         tabindex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
               <h1 className="sign-title" id="exampleModalLabel">
                 Please Login to continue:
               </h1>
@@ -241,7 +241,7 @@ function NavBar() {
                 aria-label="Close"
               ></button>
             </div>
-            <div class="modal-body">
+            <div className="modal-body">
                <label for="email">
                 <b>Email</b>
               </label>
