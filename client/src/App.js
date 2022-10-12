@@ -6,11 +6,11 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import Canvas from "./pages/Canvas";
-import { setContext, useRef } from "@apollo/client/link/context";
+import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "./components/Nav";
 import Home from "./pages/Home";
-import Game from "./pages/Canvas";
+
 // import HighScores from "./pages/HighScores";
 // import Inventory from "./pages/Inventory";
 // import Login from "./pages/Login";
@@ -79,8 +79,8 @@ function App() {
                 element={<Login />} 
               />  */}
               <Route 
-              path="/Game" 
-              element={<Game />} 
+              path="/Canvas" 
+              element={<Canvas />} 
             />
             </Routes>
           </div>
@@ -89,6 +89,6 @@ function App() {
     </>
   
 }
-}
+
 
 export default App
