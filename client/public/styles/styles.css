@@ -6,36 +6,56 @@ body {
   background-size: 175vh;
 }
 
-.navbar {
-  background: black;
+/* highscore */
+#high {
+  padding: 16px;
+  background-color: rgb(3, 46, 29);
 }
 
-.nav-link {
-  color: #2B943E
+/* signup */
+.signup {
+  border: 10px solid black;
 }
 
-a:hover {
-  color: #21d442;
+b {
+  color: rgb(34, 184, 126);
 }
 
-.nav-link:hover {
-  color: #21d442;
+h1 {
+  color: rgb(34, 184, 126);
 }
 
-.nav-link:visited {
-  color: #2B943E;
+#signup {
+  padding: 16px;
+  background-color: rgb(3, 46, 29);
 }
 
-.navbar-brand {
-  color: #2B943E;
+input[type=text], input[type=psw] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid black;
+  box-sizing: border-box;
 }
 
-.navbar-brand:hover {
-  color: #21d442;
+
+/* Login */
+.login {
+ display: flex;
+ padding: 16px;
 }
 
+.login-container {
+  padding: 16px;
+}
 
-
-.modal-backdrop {
-  position:unset !important;
+button {
+  background-color: black;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
 }

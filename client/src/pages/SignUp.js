@@ -1,5 +1,5 @@
 function SignUp() {
-  return <>SignUp Modal</>;
+  return <></>;
 }
 
 export default SignUp;

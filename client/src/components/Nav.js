@@ -74,6 +74,7 @@ function NavBar() {
   Launch demo modal
 </button> */}
 
+      {/* Inventory section */}
       <div
         className="modal fade"
         id="inventory"
@@ -112,6 +113,8 @@ function NavBar() {
           </div>
         </div>
       </div>
+
+      {/* highscores section */}
       <div
         className="modal fade"
         id="high-score"
@@ -120,10 +123,10 @@ function NavBar() {
         aria-hidden="true"
       >
         <div className="modal-dialog">
-          <div className="modal-content">
+          <div id="high" class="modal-content">
             <div className="modal-header">
               <h1 className="modal-title fs-5" id="exampleModalLabel">
-                High Scores
+                Commit your high sore?
               </h1>
               <HighScores />
               <button
@@ -133,22 +136,90 @@ function NavBar() {
                 aria-label="Close"
               ></button>
             </div>
-            <div className="modal-body">...</div>
-            <div className="modal-footer">
+            <div className="modal-body">
+            <label for="name">
+                <b>Enter initials</b>
+              </label>
+              <input
+                type="text"
+                placeholder="Enter Name"
+                name="name"
+                required
+              />
               <button
                 type="button"
-                className="btn btn-secondary"
+                class="btn btn-success"
                 data-bs-dismiss="modal"
               >
-                Close
-              </button>
-              <button type="button" className="btn btn-primary">
-                Save changes
+                Submit
               </button>
             </div>
           </div>
         </div>
       </div>
+
+      {/* signup section */}
+      <div
+        className="modal fade"
+        id="signup"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog">
+          <div id="signup" class="modal-content">
+            <div className="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Please SignUp to continue:
+              </h1>
+              <SignUp />
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div className="modal-body">
+              <label for="name">
+                <b>Player Name</b>
+              </label>
+              <input
+                type="text"
+                placeholder="Enter Name"
+                name="name"
+                required
+              />
+               <label for="email">
+                <b>Email</b>
+              </label>
+              <input
+                type="text"
+                placeholder="Enter Email"
+                name="email"
+                required
+              /> <label for="psw">
+                <b>Password</b>
+              </label>
+              <input
+                type="psw"
+                placeholder="Enter Password"
+                name="psw"
+                required
+              />
+              <button
+                type="button"
+                class="btn btn-success"
+                data-bs-dismiss="modal"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* login section */}
       <div
         className="modal fade"
         id="signup"
@@ -159,46 +230,10 @@ function NavBar() {
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <h1 className="modal-title fs-5" id="exampleModalLabel">
-                Sign Up
+              <h1 className="sign-title" id="exampleModalLabel">
+                Please Login to continue:
               </h1>
-              <SignUp />
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div className="modal-body">...</div>
-            <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
-              <button type="button" className="btn btn-primary">
-                Save changes
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        className="modal fade"
-        id="Login"
-        tabindex="-1"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h1 className="modal-title fs-5" id="exampleModalLabel">
-                Login
-              </h1>
+              <Login />
               <button
                 type="button"
                 className="btn-close"
@@ -207,7 +242,23 @@ function NavBar() {
               ></button>
             </div>
             <div className="modal-body">
-              <Login />
+               <label for="email">
+                <b>Email</b>
+              </label>
+              <input
+                type="text"
+                placeholder="Enter Email"
+                name="email"
+                required
+              /> <label for="psw">
+                <b>Password</b>
+              </label>
+              <input
+                type="psw"
+                placeholder="Enter Password"
+                name="psw"
+                required
+              />
             </div>
             <div className="modal-footer">
               <button
@@ -215,10 +266,7 @@ function NavBar() {
                 className="btn btn-secondary"
                 data-bs-dismiss="modal"
               >
-                Close
-              </button>
-              <button type="button" className="btn btn-primary">
-                Save changes
+                Submit
               </button>
             </div>
           </div>
