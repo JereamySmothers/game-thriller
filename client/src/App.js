@@ -5,11 +5,12 @@ import {
   ApolloProvider,
   createHttpLink,
 } from "@apollo/client";
+import { canvas } from "./pages/Canvas";
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "./components/Nav";
 import Home from "./pages/Home";
-import Game from "./pages/Game";
+import Game from "./pages/Canvas";
 // import HighScores from "./pages/HighScores";
 // import Inventory from "./pages/Inventory";
 // import Login from "./pages/Login";
@@ -29,6 +30,13 @@ const authLink = setContext((_, { headers }) => {
   };
 });
 
+// const canvas = document.querySelector('canvas');
+
+
+const ctx = canvas.getContext('2d');
+canvas.width = 1024;
+canvas.height = 576;
+
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
@@ -37,6 +45,9 @@ const client = new ApolloClient({
 const App = () => {
   return (
     <>
+   
+     {/* <canvas></canvas>  */}
+  
       <ApolloProvider client={client}>
         <Router>
           <div>

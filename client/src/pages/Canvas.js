@@ -2,22 +2,25 @@ import React, { components } from "react";
 import ReactDOM from 'react-dom/client';
 import App from '../App';
 import platform from '../assets/img/grassHalf.png'
-import octocat from '../assets/Octocat_small.png'
+// import octocat from '../assets/Octocat_small.png'
 import background from '../assets/img/layer-1.png'
 import stonePlatform from '../assets/img/stoneHalf.png'
 
 console.log('platform')
 
-const canvas = document.querySelector('canvas')
+export const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
 console.log(c)
 console.log(canvas)
 
+canvas.width = 1024;
+canvas.height = 576;
+
+
 const Game = () => {
 // playerImg.src = '../img/Octocat.png'
 
-canvas.width = 1024;
-canvas.height = 576;
+
 
 
 
@@ -55,30 +58,36 @@ canvas.height = 576;
         c.fillStyle = '#FFA500'
         c.fillRect(this.position.x, this.position.y, this.width, this.height)
     }
-   
-      updateplayer = () => { 
+  
+      update() {
+        this.draw()
+        this.position.x += this.velocity.x
+        this.position.y += this.velocity.y 
       
-    if (this.position.y += this.height +
+    if (this.position.y + this.height +
         this.velocity.y <= canvas.height)
       this.velocity.y += gravity
-      else this.velocity.y = 0
-      return (
-        <div className="update">
-        this.position.x += this.velocity.x,
-        this.position.y += this.velocity.y
-        </div>
-        ); 
     }
-  }
+    }
+  
 
   function createImage(imageSrc) {
     const image = new Image()
     image.src = imageSrc
+    var octocat = new Image();
+    octocat.src = '../assets/Octocat_small.png'
+    octocat.onload = function() {
+      c.drawImage(octocat, -3, 470, this.width, this.height)
+    var background = new Image()
+    background.src = '../assets/img/layer-1.png'
+    background.onload = function() {
+      c.drawImage(background, 0, 0, this.width, this.height)
+    
+    }
     return image
+    }
   }
   // init()
-  
-  
   class Platform {
     constructor({ x, y, image }) {
       this.position = {
@@ -112,7 +121,7 @@ canvas.height = 576;
         x: 0
       }
       this.image = image
-      this.width = image.width
+      this.width = 1024
       this.height = image.height
     }
   
@@ -126,21 +135,21 @@ canvas.height = 576;
     }
   }
 
-  const createImg = (imgSrc) => {
-  const image = new Image()
-  image.src = imgSrc
-   return image
-  }
+  // const createImage = (imgSrc) => {
+  // const image = new Image()
+  // image.src = imgSrc
+  //  return image
+  // }
   const backgroundImg = createImage(background)
-  const stonePlatformImg = createImg(stonePlatform)
-  const platformImg = createImg(platform)
+  const stonePlatformImg = createImage(stonePlatform)
+  const platformImg = createImage(platform)
   
   const player = new Player()
   
   const platforms = [
     new Platform({
-      x: platformImg.width -3,
-      y: 470,
+      x: platformImg.width -38,
+      y: 510,
       image: platformImg
     }),
     //COMPARE TO placemnet with mine
@@ -167,7 +176,7 @@ canvas.height = 576;
     new Platform({
       x: platformImg.width * 5 + 700 -3,
       y: 470,
-      image: createImg(stonePlatformImg)
+      image: createImage(stonePlatformImg)
     }),
   ]
 
@@ -175,6 +184,7 @@ canvas.height = 576;
     new SceneryObject({
       x: -1,
       y: -1,
+      
       image: backgroundImg
     }),
   ]
@@ -342,6 +352,7 @@ canvas.addEventListener('keyup', ({ key }) => {
 }
 
 export default Game
+
 //  function init() {}
 
 // const platformImg = createImages(platform) 
