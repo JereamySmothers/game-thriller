@@ -123,10 +123,10 @@ function NavBar() {
         aria-hidden="true"
       >
         <div class="modal-dialog">
-          <div class="modal-content">
+          <div id="high" class="modal-content">
             <div class="modal-header">
               <h1 class="modal-title fs-5" id="exampleModalLabel">
-                High Scores
+                Commit your high sore?
               </h1>
               <HighScores />
               <button
@@ -136,17 +136,22 @@ function NavBar() {
                 aria-label="Close"
               ></button>
             </div>
-            <div class="modal-body">...</div>
-            <div class="modal-footer">
+            <div class="modal-body">
+            <label for="name">
+                <b>Enter initials</b>
+              </label>
+              <input
+                type="text"
+                placeholder="Enter Name"
+                name="name"
+                required
+              />
               <button
                 type="button"
-                class="btn btn-secondary"
+                class="btn btn-success"
                 data-bs-dismiss="modal"
               >
-                Close
-              </button>
-              <button type="button" class="btn btn-primary">
-                Save changes
+                Submit
               </button>
             </div>
           </div>
@@ -225,7 +230,7 @@ function NavBar() {
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">
+              <h1 className="sign-title" id="exampleModalLabel">
                 Please Login to continue:
               </h1>
               <Login />
