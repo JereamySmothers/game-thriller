@@ -1,14 +1,12 @@
-import React, { components } from "react";
+import React, { components, useEffect, useRef } from "react";
 import ReactDOM from 'react-dom/client';
 import App from '../App';
 import platform from '../assets/img/grassHalf.png'
 // import octocat from '../assets/Octocat_small.png'
 import background from '../assets/img/layer-1.png'
 import stonePlatform from '../assets/img/stoneHalf.png'
-
-console.log('platform')
-
 export const canvas = document.querySelector('canvas')
+
 const c = canvas.getContext('2d')
 console.log(c)
 console.log(canvas)
@@ -17,10 +15,23 @@ canvas.width = 1024;
 canvas.height = 576;
 
 
-const Game = () => {
+const Canvas = () => {
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) {
+      return;
+    }
+    const   
+
+
+  }, [])
+
+  return <canvas ref={canvasRef}/>
 // playerImg.src = '../img/Octocat.png'
 
-
+}
 
 
 
@@ -82,7 +93,6 @@ const Game = () => {
     background.src = '../assets/img/layer-1.png'
     background.onload = function() {
       c.drawImage(background, 0, 0, this.width, this.height)
-    
     }
     return image
     }
@@ -351,7 +361,7 @@ canvas.addEventListener('keyup', ({ key }) => {
 
 }
 
-export default Game
+export default Canvas;
 
 //  function init() {}
 

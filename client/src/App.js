@@ -5,8 +5,8 @@ import {
   ApolloProvider,
   createHttpLink,
 } from "@apollo/client";
-import { canvas } from "./pages/Canvas";
-import { setContext } from "@apollo/client/link/context";
+import Canvas from "./pages/Canvas";
+import { setContext, useRef } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "./components/Nav";
 import Home from "./pages/Home";
@@ -33,20 +33,24 @@ const authLink = setContext((_, { headers }) => {
 // const canvas = document.querySelector('canvas');
 
 
-const ctx = canvas.getContext('2d');
-canvas.width = 1024;
-canvas.height = 576;
+// const ctx = canvas.getContext('2d');
+// canvas.width = 1024;
+// canvas.height = 576;
 
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
 
-const App = () => {
-  return (
-    <>
+function App() {
+  
+ 
+ <>
+ 
+  return <Canvas />
+    
    
-     {/* <canvas></canvas>  */}
+     
   
       <ApolloProvider client={client}>
         <Router>
@@ -83,7 +87,8 @@ const App = () => {
         </Router>
       </ApolloProvider>
     </>
-  );
-};
+  
+}
+}
 
-export default App;
+export default App
