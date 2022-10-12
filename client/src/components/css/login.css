@@ -1,22 +1,17 @@
 .login {
+    border: 3px solid black;
+}
+
+.login-container {
+    padding: 16px;
+}
+
+input[type=text], input[type=password] {
     width: 100%;
-    height: 60vh;
-    position: relative;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid black;
+    box-sizing: border-box;
 }
 
-.login h1 {
-    font-size: 2.4rem;
-}
-
-#label::placeholder {
-color: white;
-}
-
-#label {
-    border: none;
-    border-bottom: 1px solid #3a3a3a;
-    margin-bottom: 10px;
-    border-radius: 3px;
-    outline: none;
-    padding: 0px 0px 5px 5px;
-}
