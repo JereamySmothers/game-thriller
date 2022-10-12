@@ -6,6 +6,11 @@ body {
   background-size: cover;
 }
 
+#root {
+  height: 100%;
+  width: 100%;
+}
+
 /* highscore */
 #high {
   padding: 16px;

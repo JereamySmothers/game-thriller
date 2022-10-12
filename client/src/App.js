@@ -11,7 +11,7 @@ import NavBar from "./components/Nav";
 import Home from "./pages/Home";
 // import HighScores from "./pages/HighScores";
 // import Inventory from "./pages/Inventory";
-// import Login from "./pages/Login";
+import Login from "./pages/Login";
 // import SignUp from "./pages/SignUp";
 
 const httpLink = createHttpLink({
@@ -35,18 +35,18 @@ const client = new ApolloClient({
 
 const App = () => {
   return (
-    <>
+    <div className="main">
       <ApolloProvider client={client}>
         <Router>
           <div>
             <NavBar />
             <Routes>
               <Route path="/" element={<Home />} />
-              {/* <Route 
+              <Route 
                 path="/login" 
                 element={<Login />} 
               />
-              <Route 
+              {/* <Route 
                 path="/inventory" 
                 element={<Inventory />} 
               />
@@ -66,7 +66,7 @@ const App = () => {
           </div>
         </Router>
       </ApolloProvider>
-    </>
+    </div>
   );
 };
 

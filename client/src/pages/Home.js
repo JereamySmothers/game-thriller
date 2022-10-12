@@ -11,8 +11,8 @@ function Home() {
 
   const initialCharState = {
     image: char,
-    x: 500,
-    y: 300,
+    x: 300,
+    y: 927,
   };
   const [character, updateCharacter] = useState(initialCharState);
 
@@ -31,7 +31,7 @@ function Home() {
       tabIndex={0}
       onKeyDown={controls}
       ref={controlsRef}
-      style={{ width: "1000px", height: "1000px" }}
+      style={{ width: "100%", height: "100%" }}
     >
       <div
         style={{
