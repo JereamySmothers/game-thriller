@@ -53,6 +53,11 @@ a:hover {
   position:unset !important;
 }
 
+#root {
+  height: 100%;
+  width: 100%;
+}
+
 /* highscore */
 #high {
   padding: 16px;
