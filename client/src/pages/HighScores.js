@@ -1,5 +1,20 @@
-function HighScores() {
-  return <>High Scores Modal</>;
-}
+import React from "react";
+import Nav from "../components/Nav";
 
-export default HighScores;
+const Highscore = () => {
+
+    return (
+        <div>
+          <Nav></Nav>
+            <title>Highscores</title>
+
+            <ol>
+                <li>
+
+                </li>
+            </ol>
+        </div>
+    );
+};
+
+export default Highscore;

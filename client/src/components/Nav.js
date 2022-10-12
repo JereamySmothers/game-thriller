@@ -34,7 +34,7 @@ function NavBar() {
             <li className="nav-item">
               <a
                 className="nav-link"
-                href="#"
+                href="#inventory"
                 data-bs-toggle="modal"
                 data-bs-target="#inventory"
               >
@@ -44,7 +44,7 @@ function NavBar() {
             <li className="nav-item">
               <a
                 className="nav-link"
-                href="#"
+                href="#high-score"
                 data-bs-toggle="modal"
                 data-bs-target="#high-score"
               >
@@ -54,7 +54,7 @@ function NavBar() {
             <li className="nav-item">
               <a
                 className="nav-link"
-                href="#"
+                href="#signup"
                 data-bs-toggle="modal"
                 data-bs-target="#signup"
               >
