@@ -7,6 +7,31 @@ body {
 }
 
 /* signup */
+.signup {
+  border: 10px solid black;
+}
+
+b {
+  color: rgb(34, 184, 126);
+}
+
+h1 {
+  color: rgb(34, 184, 126);
+}
+
+#signup {
+  padding: 16px;
+  background-color: rgb(3, 46, 29);
+}
+
+input[type=text], input[type=psw] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid black;
+  box-sizing: border-box;
+}
 
 
 /* Login */

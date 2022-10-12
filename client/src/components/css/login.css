@@ -1,9 +1,14 @@
 .login {
-    border: 3px solid black;
+    border: 10px solid black;
+}
+
+.login h1 {
+    color: rgb(34, 184, 126);
 }
 
 .login-container {
     padding: 16px;
+    background-color: rgb(4, 107, 68);
 }
 
 input[type=text], input[type=password] {
@@ -14,4 +19,3 @@ input[type=text], input[type=password] {
     border: 1px solid black;
     box-sizing: border-box;
 }
-

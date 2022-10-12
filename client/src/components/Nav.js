@@ -74,6 +74,7 @@ function NavBar() {
   Launch demo modal
 </button> */}
 
+      {/* Inventory section */}
       <div
         class="modal fade"
         id="inventory"
@@ -112,6 +113,8 @@ function NavBar() {
           </div>
         </div>
       </div>
+
+      {/* highscores section */}
       <div
         class="modal fade"
         id="high-score"
@@ -149,6 +152,69 @@ function NavBar() {
           </div>
         </div>
       </div>
+
+      {/* signup section */}
+      <div
+        class="modal fade"
+        id="signup"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div id="signup" class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Please SignUp to continue:
+              </h1>
+              <SignUp />
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <label for="name">
+                <b>Player Name</b>
+              </label>
+              <input
+                type="text"
+                placeholder="Enter Name"
+                name="name"
+                required
+              />
+               <label for="email">
+                <b>Email</b>
+              </label>
+              <input
+                type="text"
+                placeholder="Enter Email"
+                name="email"
+                required
+              /> <label for="psw">
+                <b>Password</b>
+              </label>
+              <input
+                type="psw"
+                placeholder="Enter Password"
+                name="psw"
+                required
+              />
+              <button
+                type="button"
+                class="btn btn-success"
+                data-bs-dismiss="modal"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* login section */}
       <div
         class="modal fade"
         id="signup"
@@ -160,45 +226,9 @@ function NavBar() {
           <div class="modal-content">
             <div class="modal-header">
               <h1 class="modal-title fs-5" id="exampleModalLabel">
-                Sign Up
+                Please Login to continue:
               </h1>
-              <SignUp />
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">...</div>
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
-              <button type="button" class="btn btn-primary">
-                Save changes
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="modal fade"
-        id="Login"
-        tabindex="-1"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">
-                Login
-              </h1>
+              <Login />
               <button
                 type="button"
                 class="btn-close"
@@ -207,7 +237,23 @@ function NavBar() {
               ></button>
             </div>
             <div class="modal-body">
-              <Login />
+               <label for="email">
+                <b>Email</b>
+              </label>
+              <input
+                type="text"
+                placeholder="Enter Email"
+                name="email"
+                required
+              /> <label for="psw">
+                <b>Password</b>
+              </label>
+              <input
+                type="psw"
+                placeholder="Enter Password"
+                name="psw"
+                required
+              />
             </div>
             <div class="modal-footer">
               <button
@@ -215,10 +261,7 @@ function NavBar() {
                 class="btn btn-secondary"
                 data-bs-dismiss="modal"
               >
-                Close
-              </button>
-              <button type="button" class="btn btn-primary">
-                Save changes
+                Submit
               </button>
             </div>
           </div>
