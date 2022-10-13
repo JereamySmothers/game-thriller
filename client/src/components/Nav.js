@@ -3,8 +3,8 @@ import HighScores from "../pages/HighScores";
 
 function NavBar() {
   return (
-    <nav className="navbar navbar-expand-lg bg-light">
-      <div className="container-fluid">
+    <nav className="navbar navbar-expand-lg sticky-top">
+      <div className="container-fluid ">
         <a className="navbar-brand" href="/">
           Octocat: The Last Commit
         </a>
