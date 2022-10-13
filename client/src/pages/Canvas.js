@@ -366,7 +366,7 @@ canvas.addEventListener('keyup', ({ key }) => {
   console.log(keys.right.pressed)
 })
 
-}
+
 
 export default Canvas;
 
