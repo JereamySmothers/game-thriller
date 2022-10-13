@@ -1,5 +1,4 @@
 import "../components/css/login.css";
-
 import React from "react";
 
 const Login = () => {
@@ -7,11 +6,11 @@ const Login = () => {
     <div className="login">
       <div className="login-container">
         <h1>Please Login to continue</h1>
-        <label for="email">
+        <label htmlFor="email">
           <b>Email</b>
         </label>
         <input type="text" placeholder="Enter Email" name="email" required />
-        <label for="psw">
+        <label htmlFor="psw">
           <b>Password</b>
         </label>
         <input
