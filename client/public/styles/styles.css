@@ -4,8 +4,8 @@ body {
   -moz-background-size: fixed;
   -o-background-size: fixed;
   background-size: 175vh;
-  position: absolute;
-  z-index: 1;
+  /* position: absolute;
+  z-index: 1; */
 }
 
 .navbar {
@@ -36,18 +36,18 @@ a:hover {
   color: #21d442;
 }
 
-#octocat {
+/* #octocat {
   position: relative !important;
   right: 200px !important;
   top: 300px !important;
-}
+} */
 
-.modal {
+/* .modal {
   position:absolute;
   z-index: 5;
   margin-top: 5%;
   height: 100vh;
-}
+} */
 
 .modal-backdrop {
   position:unset !important;
