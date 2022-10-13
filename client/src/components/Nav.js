@@ -3,8 +3,8 @@ import HighScores from "../pages/HighScores";
 
 function NavBar() {
   return (
-    <nav className="navbar navbar-expand-lg bg-light">
-      <div className="container-fluid">
+    <nav className="navbar navbar-expand-lg sticky-top">
+      <div className="container-fluid ">
         <a className="navbar-brand" href="/">
           Octocat: The Last Commit
         </a>
@@ -22,7 +22,7 @@ function NavBar() {
         <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/game">
+              <a className="nav-link" aria-current="page" href="/game">
                 START
               </a>
             </li>
@@ -65,7 +65,7 @@ function NavBar() {
 </button> */}
 
       {/* Inventory section */}
-      <div className="modal fade" id="inventory" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div className="modal fade hide" id="inventory" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
@@ -90,7 +90,7 @@ function NavBar() {
       </div>
 
       {/* highscores section */}
-      <div className="modal fade" id="high-score" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div className="modal fade hide" id="high-score" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog">
           <div id="high" className="modal-content">
             <div className="modal-header">
@@ -114,12 +114,12 @@ function NavBar() {
       </div>
 
       {/* signup section */}
-      <div className="modal fade" id="signup" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div className="modal fade hide" id="signup" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog">
           <div id="signup" className="modal-content">
             <div className="modal-header">
-              <h1 className="modal-title fs-5" id="exampleModalLabel">
-                Please SignUp to continue:
+              <h1 className="modal-title fs-3" id="exampleModalLabel">
+                Please Sign Up to continue:
               </h1>
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -145,11 +145,11 @@ function NavBar() {
       </div>
 
       {/* login section */}
-      <div className="modal fade" id="login" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div className="modal fade hide" id="login" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <h1 className="sign-title" id="exampleModalLabel">
+              <h1 className="modal-title fs-3" id="exampleModalLabel">
                 Please Login to continue:
               </h1>
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

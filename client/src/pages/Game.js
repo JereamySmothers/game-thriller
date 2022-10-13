@@ -332,12 +332,13 @@ const Game = ({ draw, height, width }) => {
   }, [draw, height, width]);
 
   return (
-    <div>
+    <div className="GameWindow">
       <div
         style={{
-          position: "relative",
-          top: "500px",
+          // position: "relative",
+          top: "200px",
           left: "480px",
+          display: "flex",
           alignItems: "center",
           justifyContent: "center",
           height: "100vh",
