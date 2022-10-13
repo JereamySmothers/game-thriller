@@ -34,6 +34,8 @@ function Home() {
       <div
         style={{
           position: "absolute",
+          // top: `${character.y}px`,
+          // left: `${character.x}px`,
           top: `80vh`,
           left: `10vh`,
         }}
