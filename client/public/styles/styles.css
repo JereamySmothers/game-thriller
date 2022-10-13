@@ -1,3 +1,9 @@
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+/* body and background styles */
 body {
   background: url(../background.png) repeat-x center center fixed;
   -webkit-background-size: fixed;
@@ -8,21 +14,24 @@ body {
   z-index: 1; */
 }
 
+/* navbar styles */
 .navbar {
   background: black;
+  position: fixed;
+  width: 100%;
 }
 
 .nav-link {
-  color: #2B943E
+  color: #2B943E;
 }
 
 a:hover {
   color: #21d442;
 }
 
-.nav-link:hover {
+/* .nav-link:hover {
   color: #21d442;
-}
+} */
 
 .nav-link:visited {
   color: #2B943E;
@@ -36,37 +45,24 @@ a:hover {
   color: #21d442;
 }
 
-/* #octocat {
-  position: relative !important;
-  right: 200px !important;
-  top: 300px !important;
-} */
-
-/* .modal {
+/* modal styles */
+.modal {
   position:absolute;
   z-index: 5;
   margin-top: 5%;
   height: 100vh;
-} */
+}
 
 .modal-backdrop {
-  position:unset !important;
+  z-index: 9;
 }
 
-#root {
-  height: 100%;
-  width: 100%;
+.modal-backdrop.hide {
+  background-color: transparent;
 }
 
-/* highscore */
-#high {
-  padding: 16px;
-  background-color: rgb(3, 46, 29);
-}
-
-/* signup */
-.signup {
-  border: 10px solid black;
+.modal-content {
+  background-color: #19281F;
 }
 
 b {
@@ -75,11 +71,7 @@ b {
 
 h1 {
   color: rgb(34, 184, 126);
-}
-
-#signup {
-  padding: 16px;
-  background-color: rgb(3, 46, 29);
+  font-size: 2.5em;
 }
 
 input[type=text], input[type=psw] {
@@ -91,20 +83,9 @@ input[type=text], input[type=psw] {
   box-sizing: border-box;
 }
 
-
-/* Login */
-.login {
- display: flex;
- padding: 16px;
-}
-
-.login-container {
-  padding: 16px;
-}
-
-button {
+.btn {
   background-color: black;
-  color: white;
+  color: #2B943E;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
