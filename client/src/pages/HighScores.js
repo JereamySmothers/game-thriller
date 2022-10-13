@@ -1,5 +1,5 @@
 function HighScores() {
-  return <>High Scores Modal</>;
+  return <></>;
 }
 
 export default HighScores;
