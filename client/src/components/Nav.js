@@ -1,7 +1,42 @@
 import Inventory from "../pages/Inventory";
 import HighScores from "../pages/HighScores";
+import { useMutation } from "@apollo/client";
+import { ADD_PLAYER } from "../utils/mutations";
+import { LOGIN } from "../utils/mutations";
+import { useState } from "react";
+import Auth from "../utils/auth";
 
 function NavBar() {
+  const [AddPlayer] = useMutation(ADD_PLAYER);
+  const [Login] = useMutation(LOGIN);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: ""
+  });
+
+  async function handleFormSubmit () {
+    // alert(formData.name + " " + formData.email + " " + formData.password)
+    const { data } = await AddPlayer({
+      variables: {
+        playerName: formData.name,
+        email: formData.email,
+        password: formData.password
+      }
+    })
+    Auth.login(data.addPlayer.token)
+  }
+
+  async function handleFormLogin () {
+    const { data } = await Login({
+      variables: {
+        email: formData.email,
+        password: formData.password
+      }
+    })
+    Auth.login(data.login.token)
+  }
+
   return (
     <nav className="navbar navbar-expand-lg sticky-top">
       <div className="container-fluid ">
@@ -127,16 +162,19 @@ function NavBar() {
               <label htmlFor="name">
                 <b>Player Name</b>
               </label>
-              <input type="text" placeholder="Enter Name" name="name" required />
+              <input type="text" placeholder="Enter Name" name="name" value={formData.name} required onChange={(event) =>
+              setFormData({...formData, name: event.target.value})} />
               <label htmlFor="email">
                 <b>Email</b>
               </label>
-              <input type="text" placeholder="Enter Email" name="email" required />{" "}
+              <input type="text" placeholder="Enter Email" name="email" value={formData.email} required onChange={(event) =>
+              setFormData({...formData, email: event.target.value})} />{" "}
               <label htmlFor="psw">
                 <b>Password</b>
               </label>
-              <input type="psw" placeholder="Enter Password" name="psw" required />
-              <button type="button" className="btn btn-success" data-bs-dismiss="modal">
+              <input type="psw" placeholder="Enter Password" name="psw" value={formData.password} required onChange={(event) =>
+              setFormData({...formData, password: event.target.value})}/>
+              <button type="button" className="btn btn-success" data-bs-dismiss="modal" onClick={handleFormSubmit}>
                 Submit
               </button>
             </div>
@@ -158,14 +196,16 @@ function NavBar() {
               <label htmlFor="email">
                 <b>Email</b>
               </label>
-              <input type="text" placeholder="Enter Email" name="email" required />{" "}
+              <input type="text" placeholder="Enter Email" name="email" value={formData.email} required onChange={(event) =>
+              setFormData({...formData, email: event.target.value})}/>{" "}
               <label htmlFor="psw">
                 <b>Password</b>
               </label>
-              <input type="psw" placeholder="Enter Password" name="psw" required />
+              <input type="psw" placeholder="Enter Password" name="psw" value={formData.password} required onChange={(event) =>
+              setFormData({...formData, password: event.target.value})} />
             </div>
             <div className="modal-footer">
-              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">
+              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={handleFormLogin}>
                 Submit
               </button>
             </div>
