@@ -1,0 +1,94 @@
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+/* body and background styles */
+body {
+  background: url(../background.png) repeat-x center center fixed;
+  -webkit-background-size: fixed;
+  -moz-background-size: fixed;
+  -o-background-size: fixed;
+  background-size: 175vh;
+  /* position: absolute;
+  z-index: 1; */
+}
+
+/* navbar styles */
+.navbar {
+  background: black;
+  position: fixed;
+  width: 100%;
+}
+
+.nav-link {
+  color: #2B943E;
+}
+
+a:hover {
+  color: #21d442;
+}
+
+/* .nav-link:hover {
+  color: #21d442;
+} */
+
+.nav-link:visited {
+  color: #2B943E;
+}
+
+.navbar-brand {
+  color: #2B943E;
+}
+
+.navbar-brand:hover {
+  color: #21d442;
+}
+
+/* modal styles */
+.modal {
+  position:absolute;
+  z-index: 5;
+  margin-top: 5%;
+  height: 100vh;
+}
+
+.modal-backdrop {
+  z-index: 9;
+}
+
+.modal-backdrop.hide {
+  background-color: transparent;
+}
+
+.modal-content {
+  background-color: #19281F;
+}
+
+b {
+  color: rgb(34, 184, 126);
+}
+
+h1 {
+  color: rgb(34, 184, 126);
+  font-size: 2.5em;
+}
+
+input[type=text], input[type=psw] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid black;
+  box-sizing: border-box;
+}
+
+.btn {
+  background-color: black;
+  color: #2B943E;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
