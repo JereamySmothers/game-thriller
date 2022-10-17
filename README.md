@@ -6,10 +6,11 @@ Mozilla Public License 2.0 (MPL-2.0)
 Further resources on Mozilla Public License 2.0 (MPL-2.0) - Please click on the license badge above for more information.
 
 ## Description
-Welcome to the world of Git! In this side-scroller game, you will be playing as protagonist Octocat, a part-cat, part-octopus entity. Collect bits (coins) and potions to help you fight zombie-like bugs. Will you help Octocat defeat the evil plaguing the world of Git and commit the day?
+Welcome to the world of Git! In this top-down game, you will be playing as protagonist Octocat, a part-cat, part-octopus entity. Collect bits (coins) and potions to help you fight zombie-like bugs. Will you help Octocat defeat the evil plaguing the world of Git and commit the day?
 
 ## Built With
 React, CSS JavaScript, Node.js, Express.js, Bcrypt, ESLint, Prettier, Bootstrap, Tiled
+Background created by Luis Zuno (@ansimuz)
 
 ## Website
 (Insert link to Heroku deployment)
