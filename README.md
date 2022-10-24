@@ -13,7 +13,7 @@ React, CSS JavaScript, Node.js, Express.js, Bcrypt, ESLint, Prettier, Bootstrap,
 Background created by Luis Zuno (@ansimuz)
 
 ## Website
-(Insert link to Heroku deployment)
+https://game-thriller.herokuapp.com/game
 
 ## Contributing
 - Louie (https://github.com/LDagnese)
